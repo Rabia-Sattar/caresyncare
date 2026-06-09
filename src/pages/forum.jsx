@@ -13,8 +13,8 @@ const Forum = () => {
   const [editingPost, setEditingPost] = useState(null);
   const [commentTexts, setCommentTexts] = useState({});
 
-  const API_URL = "http://localhost:5000/api/forum";
-
+  // const API_URL = "http://localhost:5000/api/forum";
+const API_URL = "https://caresync-final-year-project-software-engineering-production.up.railway.app";
 // "https://caresync-care-production.up.railway.app/api/forum";
 
   const loadPosts = async () => {
