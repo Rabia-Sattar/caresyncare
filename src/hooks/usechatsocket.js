@@ -1,7 +1,8 @@
 import { useEffect, useRef } from "react";
 import { io } from "socket.io-client";
 
-const SOCKET_URL = "http://localhost:5000";
+const SOCKET_URL = "https://caresync-final-year-project-software-engineering-production.up.railway.app";
+  // "http://localhost:5000";
 // "https://caresync-care-production.up.railway.app";
 
 
