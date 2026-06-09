@@ -1,7 +1,7 @@
 // frontend/src/pages/HealthLogs.jsx
 import React, { useEffect, useState, useRef } from "react";
 import API from "../api/axiosinstance";
-import WeeklyVitalsChart from "../components/WeeklyVitalsChart";
+import WeeklyVitalsChart from "../components/weeklyvitalschart";
 import {LuActivity, LuHeart, LuDroplets, LuScale, LuStickyNote, LuUsers,LuClock, LuUser, LuMessageSquare, LuChevronRight, LuCircleAlert,
 LuCircleCheck, LuFootprints, LuMoon, LuWind, LuSparkles, LuBrainCircuit, LuTriangleAlert, LuInfo, LuLightbulb } from "react-icons/lu";
 import { Spinner, Modal } from "react-bootstrap";
@@ -11,7 +11,7 @@ import autoTable from "jspdf-autotable";
 import html2canvas from "html2canvas";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import "./HealthLogs.css";
+import "./healthlogs.css";
 
 /* ================= HELPERS ================= */
 const getCurrentUserId = () => {
