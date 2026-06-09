@@ -2,7 +2,8 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: "https://caresync-care-production.up.railway.app/api",
+  baseURL: "https://caresync-final-year-project-software-engineering-production.up.railway.app/api",
+  // baseURL: "https://caresync-care-production.up.railway.app/api",
   timeout: 10000,
 });
 
