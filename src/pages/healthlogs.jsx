@@ -1,6 +1,6 @@
 // frontend/src/pages/HealthLogs.jsx
 import React, { useEffect, useState, useRef } from "react";
-import API from "../api/axiosInstance";
+import API from "../api/axiosinstance";
 import WeeklyVitalsChart from "../components/WeeklyVitalsChart";
 import {LuActivity, LuHeart, LuDroplets, LuScale, LuStickyNote, LuUsers,LuClock, LuUser, LuMessageSquare, LuChevronRight, LuCircleAlert,
 LuCircleCheck, LuFootprints, LuMoon, LuWind, LuSparkles, LuBrainCircuit, LuTriangleAlert, LuInfo, LuLightbulb } from "react-icons/lu";
