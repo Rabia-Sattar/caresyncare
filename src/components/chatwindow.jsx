@@ -7,7 +7,8 @@ import "../pages/familychat.css";
 
 const API_URL =
   import.meta.env.VITE_API_URL?.replace(/\/$/, "") ||
-  "http://localhost:5000";
+  "https://caresync-final-year-project-software-engineering-production.up.railway.app";
+  // "http://localhost:5000";
 
 const ChatWindow = ({ family, currentUser }) => {
   const [messages, setMessages] = useState([]);
