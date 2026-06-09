@@ -1,0 +1,425 @@
+
+/* Family List at the Top */
+.family-section {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between; /* Pushes content to opposite ends */
+  align-items: center; /* Keeps everything vertically centered */
+  gap: 20px;
+  padding: 1.5rem 2rem;
+  background: #0f172a;
+  border-bottom: 1px solid #e2e8f0;
+  color: white;
+}
+
+.family-header {
+  display: flex;
+  flex-direction: column; /* Stacks H3 and P vertically */
+  gap: 4px;
+}
+
+.family-header h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #ffffff;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin: 10px;
+}
+
+.family-header p {
+  font-size: 0.85rem;
+  color: #b9babb;
+  margin-left: 10px;
+}
+
+.family-chips-container {
+  display: flex;
+  gap: 12px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  /* Ensures chips don't shrink */
+  flex-shrink: 0; 
+}
+
+.family-chips-container::-webkit-scrollbar {
+  display: none;
+}
+
+.family-chip {
+  white-space: nowrap;
+  padding: 8px 20px;
+  border-radius: 100px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  border: 1px solid #e2e8f0;
+  background: #ffffff;
+  color: #475569;
+  transition: all 0.2s ease;
+}
+
+.family-chip:hover {
+  background: #f1f5f9;
+  border-color: #cbd5e1;
+}
+
+.family-chip.active {
+  background: #4f46e5;
+  color: #ffffff;
+  border-color: #4f46e5;
+  box-shadow: 0 4px 10px rgba(79, 70, 229, 0.2);
+}
+/* Layout & Centering */
+.chat-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #e9f3fd; /* Light background */
+  padding: 20px;
+}
+
+.chatmsg-container {
+  width: 100%;
+  max-width: 850px;
+  height: 85vh;
+  background: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.chat-header {
+  padding: 16px 24px;
+  background: #0f172a;
+  backdrop-filter: blur(10px); /* Modern frosted glass effect */
+  border-bottom: 1px solid #f1f5f9;
+  z-index: 10;
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-info {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: #0f172a;
+}
+
+/* Avatar with Badge */
+.avatar-wrapper {
+  position: relative;
+}
+
+.chat-avatar {
+  width: 44px;
+  height: 44px;
+  background: linear-gradient(135deg, #0640fd 0%, #263f92 100%);
+  color: #ffffff;
+  border-radius: 14px; /* Squircle look */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1.1rem;
+  box-shadow: 0 2px 8px rgba(79, 70, 229, 0.08);
+}
+
+.online-badge {
+  position: absolute;
+  bottom: -2px;
+  right: -2px;
+  width: 12px;
+  height: 12px;
+  background: #10b981;
+  border: 2px solid #fff;
+  border-radius: 50%;
+}
+
+/* Typography */
+.title-group {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.chat-title {
+  margin: 0;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #0f172a;
+  letter-spacing: -0.01em;
+}
+
+.chat-status {
+  margin: 0;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: #64748b;
+}
+
+/* Action Buttons */
+.header-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.icon-btn {
+  background: transparent;
+  border: none;
+  padding: 8px;
+  color: #64748b;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon-btn:hover {
+  background: #f1f5f9;
+  color: #4f46e5;
+}
+/* Chat Body (Messages) */
+.chat-body {
+  flex: 1;
+  padding: 20px;
+  background-color: #f8fafc;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Message Rows */
+.message-row {
+  display: flex;
+  width: 100%;
+  margin-bottom: 15px;
+  align-items: flex-end; /* Avatar stays at bottom of bubble */
+}
+
+/* HIRA (Other User) - Left Side */
+.message-row.other {
+  justify-content: flex-start;
+  gap: 10px;
+}
+
+.sender-avatar {
+  width: 32px;
+  height: 32px;
+  background: #6366f1; /* Purple Theme */
+  color: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+  font-weight: bold;
+  flex-shrink: 0;
+}
+
+.message-row.other .message-bubble {
+  background: #f1f5f9; /* Light Grey/Blue */
+  color: #334155;
+  border: 1px solid #e2e8f0;
+  border-bottom-left-radius: 2px;
+}
+.message-sender-name {
+  font-size: 12px;
+  font-weight: 600;
+  margin-bottom: 4px;
+  opacity: 0.8;
+  color: #4f46e5; /* you can match your theme */
+}
+.sender-name {
+  color: #4f46e5; /* Hira's name color */
+  font-weight: bold;
+  font-size: 0.75rem;
+  display: block;
+  margin-bottom: 4px;
+}
+
+/* YOU (Me) - Right Side */
+.message-row.me {
+  justify-content: flex-end;
+}
+
+.message-row.me .message-bubble {
+  background: #5c67f2; /* Solid Blue/Purple */
+  color: white;
+  border-bottom-right-radius: 2px;
+}
+
+.message-bubble {
+  max-width: 65%;
+  padding: 10px 15px;
+  border-radius: 15px;
+  position: relative;
+}
+
+.message-time {
+  display: block;
+  font-size: 0.65rem;
+  margin-top: 5px;
+  opacity: 0.8;
+  text-align: right;
+}
+
+/* Footer & Input Bar */
+.chat-footer {
+  padding: 20px;
+  background: #fff;
+  border-top: 1px solid #eee;
+}
+
+.input-bar {
+  display: flex;
+  align-items: center;
+  background: #b9d9fa;
+  border-radius: 25px;
+  padding: 5px 15px;
+  gap: 10px;
+}
+
+.chat-input-field {
+  flex: 1;
+  border: none;
+  background: transparent;
+  padding: 10px;
+  outline: none;
+  color: #334155;
+}
+
+.action-icon {
+  color: #64748b;
+  cursor: pointer;
+}
+
+.send-action-btn {
+  background: #10b981; /* Green send button */
+  color: white;
+  border: none;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+/* ===============================
+   Chat Image Message
+================================ */
+.chat-image-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-top: 6px;
+}
+
+.image-download {
+  font-size: 0.75rem;
+  color: #2563eb;
+  text-decoration: none;
+  align-self: flex-start;
+}
+
+.image-download:hover {
+  text-decoration: underline;
+}
+/* ===============================
+   Chat File Message
+================================ */
+.chat-file {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 6px;
+  padding: 8px 12px;
+  background: #f1f5f9;
+  border-radius: 10px;
+  color: #2563eb;
+  font-size: 0.85rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: background 0.2s ease, transform 0.15s ease;
+}
+
+.chat-file:hover {
+  background: #e2e8f0;
+  transform: translateY(-1px);
+}
+
+/* ===============================
+   Align media for sent messages
+================================ */
+.message-row.me .chat-image,
+.message-row.me .chat-file {
+  align-self: flex-end;
+}
+
+/* ===============================
+   Image Preview Improvements
+================================ */
+
+.chat-image {
+  width: 260px;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 12px;
+  cursor: pointer;
+  border: 1px solid rgba(0,0,0,0.08);
+  transition: transform 0.2s ease;
+}
+
+.chat-image:hover {
+  transform: scale(1.02);
+}
+
+.chat-image-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.message-row.me .chat-image-wrapper {
+  align-items: flex-end;
+}
+
+.message-row.other .chat-image-wrapper {
+  align-items: flex-start;
+}
+.chat-image {
+  width: 260px;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 12px;
+  cursor: pointer;
+  border: 1px solid rgba(0,0,0,.08);
+  transition: transform .2s ease;
+}
+
+.chat-image:hover {
+  transform: scale(1.02);
+}
+.chat-image {
+  width: 260px;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 12px;
+  cursor: pointer;
+  border: 1px solid rgba(0,0,0,.08);
+  transition: transform .2s ease;
+}
+
+.chat-image:hover {
+  transform: scale(1.02);
+}

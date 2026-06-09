@@ -1,0 +1,102 @@
+/* ==============================
+   Global Style Reset + Variables
+   ============================== */
+:root {
+  --primary-color: #0d6efd;
+  --secondary-color: #6c757d;
+  --background-light: #f8f9fa;
+  --background-dark: #212529;
+  --text-dark: #2c2c2c;
+  --text-light: #ffffff;
+  --accent-color: #198754;
+
+  font-family: "Poppins", system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.6;
+  font-weight: 400;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ==============================
+   CRITICAL: Allow full page scroll
+   ============================== */
+html {
+  overflow-x: hidden;
+  overflow-y: auto;
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--background-light);
+  color: var(--text-dark);
+  margin: 0;
+  padding: 0;
+  /* NO padding-top here — handled per layout in App.jsx */
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+#root {
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* ==============================
+   Typography
+   ============================== */
+h1, h2, h3, h4, h5, h6 {
+  color: var(--text-dark);
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+}
+
+p {
+  margin-bottom: 1rem;
+  color: #444;
+}
+
+/* ==============================
+   Links & Buttons
+   ============================== */
+a {
+  text-decoration: none;
+  color: var(--primary-color);
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: #084298;
+}
+
+button {
+  border-radius: 8px;
+  border: none;
+  padding: 0.6em 1.4em;
+  font-size: 1em;
+  font-weight: 500;
+  background-color: var(--primary-color);
+  color: var(--text-light);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+button:hover { background-color: #0b5ed7; }
+button:focus { outline: 3px solid #b6d4fe; }
+
+/* ==============================
+   Utility Classes
+   ============================== */
+.text-center { text-align: center; }
+.shadow-sm { box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08); }
+.rounded { border-radius: 10px; }
+.bg-light { background-color: var(--background-light); }
+.bg-dark { background-color: var(--background-dark); color: var(--text-light); }
+
+/* ==============================
+   Responsive Typography
+   ============================== */
+@media (max-width: 768px) {
+  h1 { font-size: 2.2em; }
+  .container { padding: 0.8rem; }
+}

@@ -1,0 +1,242 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+
+:root {
+  --pharma-blue: #2563eb;
+  --pharma-dark: #0f172a;
+  --pharma-bg: #f8fafc;
+  --pharma-border: #e2e8f0;
+}
+
+.pharma-modern-page {
+  background-color: var(--pharma-bg);
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  min-height: 100vh;
+}
+
+/* --- REFINED HERO --- */
+.pharma-hero-clean {
+  background: #0f172a;
+  padding: 80px 0 100px;
+  position: relative;
+  overflow-x: hidden;
+}
+
+.hero-blur-effect {
+  position: absolute;
+  top: -100px;
+  right: -100px;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(37, 99, 235, 0.05) 0%, transparent 70%);
+  z-index: 0;
+}
+
+.text-gradient {
+  background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.search-wrapper-specialist {
+  max-width: 700px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  background: white;
+  border-radius: 14px;
+  overflow: hidden; /* keeps button aligned */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.search-wrapper-specialist input {
+  flex: 1;
+  border: none;
+  padding: 14px 20px;
+  font-size: 1rem;
+  outline: none;
+}
+
+.search-icon {
+  color: #94a3b8;
+  font-size: 1.2rem;
+  padding-left: 15px;
+}
+
+.btn-specialist-search {
+  background: #2563eb;
+  color: white;
+  border: none;
+  padding: 14px 30px;
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.btn-specialist-search:hover {
+  background: #1e40af;
+}
+
+/* --- FILTER CHIPS --- */
+.pharma-chip {
+  background: white;
+  border: 1px solid var(--pharma-border);
+  padding: 10px 24px;
+  border-radius: 100px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #64748b;
+  white-space: nowrap;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.pharma-chip.active, .pharma-chip:hover {
+  background: var(--pharma-dark);
+  color: white;
+  border-color: var(--pharma-dark);
+  transform: translateY(-2px);
+}
+
+/* --- MODERN BENTO CARD --- */
+.pharma-modern-card {
+  background: white;
+  border-radius: 28px;
+  border: 1px solid #f1f5f9;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.pharma-modern-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 30px 60px -12px rgba(15, 23, 42, 0.08);
+  border-color: #cbd5e1;
+}
+
+.pharma-logo-squircle {
+  width: 65px;
+  height: 65px;
+  background: #f8fafc;
+  border-radius: 18px;
+  padding: 2px;
+  border: 1px solid #f1f5f9;
+  overflow: hidden;
+}
+
+.pharma-logo-squircle img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 16px;
+}
+
+.pharma-title { font-weight: 800; font-size: 1.25rem; color: var(--pharma-dark); }
+
+.rating-pill {
+  background: #fffbeb;
+  color: #b45309;
+  padding: 5px 12px;
+  border-radius: 10px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.detail-item-modern {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 10px;
+  font-size: 0.85rem;
+  color: #64748b;
+}
+
+.detail-item-modern .icon { color: var(--pharma-blue); font-size: 1rem; }
+
+.soft-tag {
+  background: #f1f5f9;
+  color: #475569;
+  padding: 4px 12px;
+  border-radius: 8px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  margin-right: 8px;
+  margin-bottom: 8px;
+  display: inline-block;
+}
+
+/* --- FOOTER LAYOUT --- */
+.card-footer-modern {
+  background: #fcfdfe;
+  border-top: 1px dashed #e2e8f0;
+  margin-top: auto; /* Ensures footer stays at the bottom */
+}
+
+/* --- LEFT SIDE: STATUS PILL --- */
+.delivery-status-pill {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #10b981; /* Green for available */
+  display: flex;
+  align-items: center;
+  white-space: nowrap; /* Prevents text from wrapping */
+}
+
+/* --- RIGHT SIDE: COMPACT BUTTON --- */
+.btn-order-modern-compact {
+  /* This is the fix for the width */
+  width: fit-content !important; 
+  min-width: 100px !important; /* Set a small minimum instead of a large one */
+  padding: 8px 18px !important; /* Adjust horizontal padding to your liking */
+  
+  /* Styling */
+  background: #0f172a !important; 
+  color: #ffffff !important;
+  border-radius: 12px !important;
+  font-weight: 700 !important;
+  font-size: 0.85rem !important;
+  border: none !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease;
+}
+
+.btn-order-modern-compact:hover {
+  background: #1e293b !important;
+  transform: translateY(-2px); /* Subtle lift instead of expanding */
+}
+
+/* Ensure the arrow icon stays proportional */
+.btn-order-modern-compact svg {
+  font-size: 0.9rem;
+}
+
+/* Custom Scrollbar */
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .search-wrapper-specialist {
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px;
+  }
+
+  .search-wrapper-specialist input {
+    width: 100%;
+    padding: 12px 15px;
+  }
+
+  .btn-specialist-search {
+    width: 100%;
+    padding: 12px;
+  }
+
+  .search-icon {
+    padding-left: 10px;
+  }
+}

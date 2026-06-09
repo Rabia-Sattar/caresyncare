@@ -1,0 +1,40 @@
+.ai-card {
+  border-radius: 1rem;
+  transition: transform 0.2s;
+}
+.ai-card:hover {
+  transform: scale(1.02);
+}
+.loader-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 60vh;
+}
+.hover-light:hover {
+  background-color: rgba(13, 110, 253, 0.05); /* Very light primary blue */
+  cursor: pointer;
+}
+
+.transition {
+  transition: all 0.2s ease-in-out;
+}
+.event-timeline {
+  max-height: 400px;
+  overflow-y: auto;
+  padding-right: 5px;
+}
+
+/* Custom scrollbar to keep it looking clean */
+.event-timeline::-webkit-scrollbar {
+  width: 4px;
+}
+.event-timeline::-webkit-scrollbar-thumb {
+  background: #e9ecef;
+  border-radius: 10px;
+}
+.suggestion-box div:hover {
+  background-color: #f0f9ff !important; /* Soft info-blue tint */
+  transform: scale(1.01);
+  transition: all 0.2s ease;
+}

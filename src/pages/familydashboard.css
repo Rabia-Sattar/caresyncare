@@ -1,0 +1,1081 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+
+
+.family-dashboard-premium {
+  padding: 40px;
+  background-color: #e9f3fd;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  color: #1e293b;
+  min-height: 100vh;
+}
+
+.fw-800 { font-weight: 800; }
+.fw-700 { font-weight: 700; }
+.fw-600 { font-weight: 600; }
+
+/* --- HEADER --- */
+.dashboard-header-modern {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.btn-create-primary, .btn-join-primary {
+  background: linear-gradient(135deg, #2a6dff, #3639fa);
+  color: white; border: none; padding: 10px 20px; border-radius: 14px;
+  font-weight: 600; box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
+  display: flex; align-items: center; gap: 5px; transition: 0.3s;
+}
+
+.btn-join-primary { background: linear-gradient(135deg, #10b981, #059669); box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3); }
+
+.btn-join-outline {
+  background: white; border: 1px solid #e2e8f0; padding: 10px 20px;
+  border-radius: 14px; font-weight: 600; margin-right: 12px;
+  color: #475569; display: flex; align-items: center; gap: 8px;
+}
+
+/* --- BENTO CARDS --- */
+.bento-stat-card {
+  background: #ffffff;
+  padding: 20px 24px;
+  border-radius: 20px;
+  border: 1px solid rgba(241, 245, 249, 0.8);
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02), 0 2px 4px -1px rgba(0, 0, 0, 0.01);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.bento-stat-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
+  border-color: #e2e8f0;
+}
+
+.stat-icon-bg {
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+/* Content Layout */
+.stat-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.stat-label {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #64748b; /* Muted slate blue */
+  text-transform: uppercase;
+  letter-spacing: 0.025em;
+  margin-bottom: 2px;
+}
+
+.stat-value {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #0f172a; /* Deep navy */
+  margin: 0;
+  line-height: 1.2;
+}
+
+.text-recent {
+  font-size: 1.25rem; /* Slightly smaller for the word 'Recent' */
+}
+
+/* Color Themes */
+.stat-indigo .stat-icon-bg { background: #eef2ff; color: #4f46e5; }
+.stat-green .stat-icon-bg { background: #f0fdf4; color: #16a34a; }
+.stat-orange .stat-icon-bg { background: #fff7ed; color: #ea580c; }
+
+/* --- CONTENT SECTIONS --- */
+.content-section-card {
+  background: white;
+  padding: 32px;
+  border-radius: 24px;
+  border: 1px solid #f1f5f9;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.02);
+}
+
+.section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+
+.section-title-modern {
+  font-weight: 800;
+  color: #0f172a;
+  font-size: 1.15rem;
+  margin: 0;
+}
+
+.badge-count {
+  font-size: 0.75rem;
+  background: #f1f5f9;
+  color: #64748b;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-weight: 600;
+}
+
+.family-item-card {
+  display: flex;
+  align-items: center;
+  padding: 16px 20px;
+  background: #ffffff;
+  border-radius: 18px;
+  margin-bottom: 12px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid #f1f5f9;
+}
+
+.family-item-card:hover {
+  border-color: #3b82f6; /* Modern Blue */
+  transform: scale(1.01);
+  box-shadow: 0 12px 20px -8px rgba(59, 130, 246, 0.15);
+}
+
+.family-avatar {
+  width: 44px;
+  height: 44px;
+  background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+  color: white;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1.1rem;
+  box-shadow: 0 4px 10px rgba(37, 99, 235, 0.2);
+}
+
+.family-info {
+  flex: 1;
+  margin-left: 18px;
+}
+
+.family-name {
+  margin-bottom: 2px;
+  font-weight: 700;
+  color: #1e293b;
+  font-size: 0.95rem;
+}
+
+.family-meta {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #94a3b8;
+  font-size: 0.8rem;
+}
+
+.family-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.btn-action {
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+  border: 1px solid transparent;
+}
+
+.btn-view {
+  background: #f8fafc;
+  color: #3b82f6;
+  border-color: #e2e8f0;
+}
+
+.btn-view:hover {
+  background: #3b82f6;
+  color: white;
+  border-color: #3b82f6;
+}
+
+.btn-delete {
+  background: white;
+  color: #94a3b8;
+}
+
+.btn-delete:hover {
+  background: #fff1f2;
+  color: #e11d48;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 40px;
+  background: #f8fafc;
+  border-radius: 20px;
+  border: 2px dashed #e2e8f0;
+}
+/* family detail modal */
+/* Modal Styling */
+.modern-modal .modal-content {
+  border-radius: 28px;
+  border: none;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+  padding: 10px;
+  background-color: #0f172a;
+  color: white;
+}
+
+/* Invite Code Box */
+.invite-box {
+  background: #f8fafc;
+  padding: 20px;
+  border-radius: 20px;
+  border: 1px solid #e2e8f0;
+  cursor: pointer;
+ 
+}
+
+.invite-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #64748b;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.invite-code-wrapper {
+  background: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 16px;
+  border-radius: 12px;
+  border: 1px solid #cbd5e1;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.invite-code-wrapper:hover {
+  border-color: #3b82f6;
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.1);
+}
+
+.invite-code {
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 600;
+  color: #2563eb;
+  font-size: 1.1rem;
+}
+
+.copy-icon-bg {
+  color: #94a3b8;
+}
+
+/* Modern Buttons */
+.action-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.btn-modern {
+  padding: 10px 16px;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: all 0.2s;
+  border: 1px solid transparent;
+}
+
+.btn-primary-modern {
+  background: #2563eb;
+  color: white;
+}
+
+.btn-primary-modern:hover {
+  background: #1d4ed8;
+  transform: translateY(-1px);
+}
+
+.btn-outline-modern {
+  background: white;
+  border-color: #e2e8f0;
+  color: #64748b;
+}
+
+.btn-danger-active {
+  background: #fff1f2;
+  border-color: #fda4af;
+  color: #e11d48;
+}
+
+/* Member Rows */
+.section-subtitle {
+  font-size: 0.85rem;
+  color: #94a3b8;
+  margin-bottom: 16px;
+}
+
+.member-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.member-avatar-sm {
+  width: 38px;
+  height: 38px;
+  background: #f1f5f9;
+  color: #475569;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+}
+
+.member-name {
+  font-weight: 600;
+  color: #1e293b;
+  font-size: 0.9rem;
+}
+
+.member-email {
+  font-size: 0.8rem;
+  color: #94a3b8;
+}
+
+.btn-remove-circle {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #fff1f2;
+  color: #e11d48;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.2s;
+}
+
+.btn-remove-circle:hover {
+  background: #e11d48;
+  color: white;
+}
+/* --- LOADER --- */
+.loader-container {
+  height: 80vh; display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+}
+/* create modal  */
+/* Container and Modal Shape */
+.modern-modal .modal-content {
+  border-radius: 24px;
+  border: none;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* Custom Close Button Styling */
+.custom-close-btn {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  background: transparent;
+  border: none;
+  color: #b9b9b9;
+  transition: color 0.2s;
+  z-index: 10;
+}
+
+.custom-close-btn:hover {
+  color: #cecece; /* Gray-900 */
+}
+
+/* Input Styling */
+.input-field-modern {
+  border-radius: 12px;
+  border: 1px solid #d1d5db;
+  background-color: #fff;
+}
+
+.input-field-modern:focus {
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.1);
+}
+
+/* Primary Button Styling */
+.btn-primary-modern {
+  background-color: #2563eb !important; /* The Vibrant Blue */
+  border: none !important;
+  border-radius: 12px !important;
+  transition: transform 0.1s, background-color 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content:center;
+}
+
+.btn-primary-modern:hover {
+  background-color: #1d4ed8 !important;
+  transform: translateY(-1px);
+}
+
+.btn-primary-modern:active {
+  transform: translateY(0);
+}
+
+/* Icon Badge Styling */
+.icon-badge-header {
+  color: #111827;
+}
+/* join modal */
+/* Container: High Curvature Bubble */
+.jf-special-modal .modal-content {
+  border-radius: 32px !important;
+  border: none !important;
+  padding: 10px;
+  background: #0f172a;
+  color: white;
+}
+
+/* Close Icon */
+.jf-close-x {
+  position: absolute;
+  top: 25px;
+  right: 25px;
+  background: none;
+  border: none;
+  color: #94a3b8;
+  font-size: 1.1rem;
+  z-index: 10;
+}
+
+/* Icon Badge: Square-ish rounded */
+.jf-icon-circle {
+  width: 64px;
+  height: 64px;
+  background: #eff6ff; 
+  color: #2563eb;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+/* Typography */
+.jf-modal-title {
+  font-weight: 700;
+  color: #ffffff;
+  font-size: 1.5rem;
+}
+
+.jf-modal-subtitle {
+  color: #64748b;
+  font-size: 0.9rem;
+  margin-bottom: 25px;
+}
+
+/* Input Styling */
+.jf-input-label {
+  font-size: 0.7rem;
+  font-weight: 800;
+  color: #64748b;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 10px;
+}
+
+.jf-input-control {
+  border-radius: 12px !important;
+  border: 2px solid #e2e8f0 !important;
+  padding: 14px 16px !important;
+  background-color: #f8fafc !important;
+  font-size: 1rem;
+}
+
+.jf-input-control:focus {
+  border-color: #3b82f6 !important;
+  background-color: #ffffff !important;
+  box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.1) !important;
+}
+
+/* The "David Family" Blue Button */
+.jf-main-button {
+  background-color: #2563eb !important;
+  border: none !important;
+  border-radius: 12px !important;
+  padding: 14px 0 !important;
+  font-weight: 700 !important;
+  width: 100% !important;
+  font-size: 1rem;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.jf-main-button:hover {
+  background-color: #1d4ed8 !important;
+  transform: translateY(-1px);
+  box-shadow: 0 10px 15px -3px rgba(37, 99, 235, 0.3) !important;
+}
+
+.jf-cancel-btn {
+  color: #94a3b8 !important;
+  font-weight: 600 !important;
+  text-decoration: none !important;
+  background: none;
+  border: none;
+}
+
+
+.family-dashboard-premium {
+  padding: 40px;
+  background-color: #e9f3fd;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  color: #1e293b;
+  min-height: 100vh;
+}
+
+.fw-800 { font-weight: 800; }
+.fw-700 { font-weight: 700; }
+.fw-600 { font-weight: 600; }
+
+/* --- HEADER --- */
+.dashboard-header-modern {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.btn-create-primary, .btn-join-primary {
+  background: linear-gradient(135deg, #2a6dff, #3639fa);
+  color: white; border: none; padding: 10px 20px; border-radius: 14px;
+  font-weight: 600; box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
+  display: flex; align-items: center; gap: 5px; transition: 0.3s;
+}
+
+.btn-join-primary { background: linear-gradient(135deg, #10b981, #059669); box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3); }
+
+.btn-join-outline {
+  background: white; border: 1px solid #e2e8f0; padding: 10px 20px;
+  border-radius: 14px; font-weight: 600; margin-right: 12px;
+  color: #475569; display: flex; align-items: center; gap: 8px;
+}
+
+/* --- BENTO CARDS --- */
+.bento-stat-card {
+  background: #ffffff;
+  padding: 20px 24px;
+  border-radius: 20px;
+  border: 1px solid rgba(241, 245, 249, 0.8);
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02), 0 2px 4px -1px rgba(0, 0, 0, 0.01);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.bento-stat-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
+  border-color: #e2e8f0;
+}
+
+.stat-icon-bg {
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+/* Content Layout */
+.stat-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.stat-label {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #64748b; /* Muted slate blue */
+  text-transform: uppercase;
+  letter-spacing: 0.025em;
+  margin-bottom: 2px;
+}
+
+.stat-value {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #0f172a; /* Deep navy */
+  margin: 0;
+  line-height: 1.2;
+}
+
+.text-recent {
+  font-size: 1.25rem; /* Slightly smaller for the word 'Recent' */
+}
+
+/* Color Themes */
+.stat-indigo .stat-icon-bg { background: #eef2ff; color: #4f46e5; }
+.stat-green .stat-icon-bg { background: #f0fdf4; color: #16a34a; }
+.stat-orange .stat-icon-bg { background: #fff7ed; color: #ea580c; }
+
+/* --- CONTENT SECTIONS --- */
+.content-section-card {
+  background: white;
+  padding: 32px;
+  border-radius: 24px;
+  border: 1px solid #f1f5f9;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.02);
+}
+
+.section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+
+.section-title-modern {
+  font-weight: 800;
+  color: #0f172a;
+  font-size: 1.15rem;
+  margin: 0;
+}
+
+.badge-count {
+  font-size: 0.75rem;
+  background: #f1f5f9;
+  color: #64748b;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-weight: 600;
+}
+
+.family-item-card {
+  display: flex;
+  align-items: center;
+  padding: 16px 20px;
+  background: #ffffff;
+  border-radius: 18px;
+  margin-bottom: 12px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid #f1f5f9;
+}
+
+.family-item-card:hover {
+  border-color: #3b82f6; /* Modern Blue */
+  transform: scale(1.01);
+  box-shadow: 0 12px 20px -8px rgba(59, 130, 246, 0.15);
+}
+
+.family-avatar {
+  width: 44px;
+  height: 44px;
+  background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+  color: white;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1.1rem;
+  box-shadow: 0 4px 10px rgba(37, 99, 235, 0.2);
+}
+
+.family-info {
+  flex: 1;
+  margin-left: 18px;
+}
+
+.family-name {
+  margin-bottom: 2px;
+  font-weight: 700;
+  color: #1e293b;
+  font-size: 0.95rem;
+}
+
+.family-meta {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #94a3b8;
+  font-size: 0.8rem;
+}
+
+.family-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.btn-action {
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+  border: 1px solid transparent;
+}
+
+.btn-view {
+  background: #f8fafc;
+  color: #3b82f6;
+  border-color: #e2e8f0;
+}
+
+.btn-view:hover {
+  background: #3b82f6;
+  color: white;
+  border-color: #3b82f6;
+}
+
+.btn-delete {
+  background: white;
+  color: #94a3b8;
+}
+
+.btn-delete:hover {
+  background: #fff1f2;
+  color: #e11d48;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 40px;
+  background: #f8fafc;
+  border-radius: 20px;
+  border: 2px dashed #e2e8f0;
+}
+/* family detail modal */
+/* Modal Styling */
+.modern-modal .modal-content {
+  border-radius: 28px;
+  border: none;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+  padding: 10px;
+  background-color: #0f172a;
+  color: white;
+}
+
+/* Invite Code Box */
+.invite-box {
+  background: #f8fafc;
+  padding: 20px;
+  border-radius: 20px;
+  border: 1px solid #e2e8f0;
+  cursor: pointer;
+ 
+}
+
+.invite-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #64748b;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.invite-code-wrapper {
+  background: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 16px;
+  border-radius: 12px;
+  border: 1px solid #cbd5e1;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.invite-code-wrapper:hover {
+  border-color: #3b82f6;
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.1);
+}
+
+.invite-code {
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 600;
+  color: #2563eb;
+  font-size: 1.1rem;
+}
+
+.copy-icon-bg {
+  color: #94a3b8;
+}
+
+/* Modern Buttons */
+.action-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.btn-modern {
+  padding: 10px 16px;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: all 0.2s;
+  border: 1px solid transparent;
+}
+
+.btn-primary-modern {
+  background: #2563eb;
+  color: white;
+}
+
+.btn-primary-modern:hover {
+  background: #1d4ed8;
+  transform: translateY(-1px);
+}
+
+.btn-outline-modern {
+  background: white;
+  border-color: #e2e8f0;
+  color: #64748b;
+}
+
+.btn-danger-active {
+  background: #fff1f2;
+  border-color: #fda4af;
+  color: #e11d48;
+}
+
+/* Member Rows */
+.section-subtitle {
+  font-size: 0.85rem;
+  color: #94a3b8;
+  margin-bottom: 16px;
+}
+
+.member-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.member-avatar-sm {
+  width: 38px;
+  height: 38px;
+  background: #f1f5f9;
+  color: #475569;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+}
+
+.member-name {
+  font-weight: 600;
+  color: #1e293b;
+  font-size: 0.9rem;
+}
+
+.member-email {
+  font-size: 0.8rem;
+  color: #94a3b8;
+}
+
+.btn-remove-circle {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #fff1f2;
+  color: #e11d48;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.2s;
+}
+
+.btn-remove-circle:hover {
+  background: #e11d48;
+  color: white;
+}
+/* --- LOADER --- */
+.loader-container {
+  height: 80vh; display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+}
+/* create modal  */
+/* Container and Modal Shape */
+.modern-modal .modal-content {
+  border-radius: 24px;
+  border: none;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* Custom Close Button Styling */
+.custom-close-btn {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  background: transparent;
+  border: none;
+  color: #b9b9b9;
+  transition: color 0.2s;
+  z-index: 10;
+}
+
+.custom-close-btn:hover {
+  color: #cecece; /* Gray-900 */
+}
+
+/* Input Styling */
+.input-field-modern {
+  border-radius: 12px;
+  border: 1px solid #d1d5db;
+  background-color: #fff;
+}
+
+.input-field-modern:focus {
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.1);
+}
+
+/* Primary Button Styling */
+.btn-primary-modern {
+  background-color: #2563eb !important; /* The Vibrant Blue */
+  border: none !important;
+  border-radius: 12px !important;
+  transition: transform 0.1s, background-color 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content:center;
+}
+
+.btn-primary-modern:hover {
+  background-color: #1d4ed8 !important;
+  transform: translateY(-1px);
+}
+
+.btn-primary-modern:active {
+  transform: translateY(0);
+}
+
+/* Icon Badge Styling */
+.icon-badge-header {
+  color: #111827;
+}
+/* join modal */
+/* Container: High Curvature Bubble */
+.jf-special-modal .modal-content {
+  border-radius: 32px !important;
+  border: none !important;
+  padding: 10px;
+  background: #0f172a;
+  color: white;
+}
+
+/* Close Icon */
+.jf-close-x {
+  position: absolute;
+  top: 25px;
+  right: 25px;
+  background: none;
+  border: none;
+  color: #94a3b8;
+  font-size: 1.1rem;
+  z-index: 10;
+}
+
+/* Icon Badge: Square-ish rounded */
+.jf-icon-circle {
+  width: 64px;
+  height: 64px;
+  background: #eff6ff; 
+  color: #2563eb;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+/* Typography */
+.jf-modal-title {
+  font-weight: 700;
+  color: #ffffff;
+  font-size: 1.5rem;
+}
+
+.jf-modal-subtitle {
+  color: #64748b;
+  font-size: 0.9rem;
+  margin-bottom: 25px;
+}
+
+/* Input Styling */
+.jf-input-label {
+  font-size: 0.7rem;
+  font-weight: 800;
+  color: #64748b;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 10px;
+}
+
+.jf-input-control {
+  border-radius: 12px !important;
+  border: 2px solid #e2e8f0 !important;
+  padding: 14px 16px !important;
+  background-color: #f8fafc !important;
+  font-size: 1rem;
+}
+
+.jf-input-control:focus {
+  border-color: #3b82f6 !important;
+  background-color: #ffffff !important;
+  box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.1) !important;
+}
+
+/* The "David Family" Blue Button */
+.jf-main-button {
+  background-color: #2563eb !important;
+  border: none !important;
+  border-radius: 12px !important;
+  padding: 14px 0 !important;
+  font-weight: 700 !important;
+  width: 100% !important;
+  font-size: 1rem;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.jf-main-button:hover {
+  background-color: #1d4ed8 !important;
+  transform: translateY(-1px);
+  box-shadow: 0 10px 15px -3px rgba(37, 99, 235, 0.3) !important;
+}
+
+.jf-cancel-btn {
+  color: #94a3b8 !important;
+  font-weight: 600 !important;
+  text-decoration: none !important;
+  background: none;
+  border: none;
+}

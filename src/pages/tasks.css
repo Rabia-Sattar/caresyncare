@@ -1,0 +1,389 @@
+/* ===============================
+   PAGE / DASHBOARD
+================================ */
+.task-dashboard {
+  min-height: 100vh;
+  padding: 28px;
+  background: #f4f6f8;
+  font-family: "Inter", system-ui, -apple-system, sans-serif;
+}
+
+/* ===============================
+   HEADER
+================================ */
+.task-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.task-header h2 {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.task-header p {
+  font-size: 14px;
+  color: #6b7280;
+}
+
+/* New Task Button */
+.btn-new-task {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 16px;
+  background: #2563eb;
+  color: #ffffff;
+  border: none;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s all ease;
+}
+
+.btn-new-task:hover {
+  background: #1d4ed8;
+}
+
+/* ===============================
+   SEARCH / FILTER BAR
+================================ */
+.task-action-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #ffffff;
+  padding: 14px 18px;
+  border-radius: 14px;
+  margin-bottom: 24px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+}
+
+.search-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex: 1;
+}
+
+.search-container input {
+  width: 100%;
+  border: none;
+  outline: none;
+  font-size: 14px;
+  background: #f9fafb;
+  border-radius: 10px;
+  padding: 8px 12px;
+}
+
+.search-icon {
+  color: #9ca3af;
+}
+
+/* Filter Button */
+.btn-filter {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 12px;
+  background: #f3f4f6;
+  border: none;
+  border-radius: 10px;
+  font-size: 13px;
+  cursor: pointer;
+  transition: 0.2s all ease;
+}
+
+.btn-filter:hover {
+  background: #e5e7eb;
+}
+
+/* ===============================
+   KANBAN BOARD
+================================ */
+.kanban-board {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+/* ===============================
+   KANBAN COLUMNS
+================================ */
+.kanban-column {
+  background: #f9fafb;
+  border-radius: 16px;
+  padding: 14px;
+  min-height: 500px;
+}
+
+/* ===============================
+   COLUMN HEADERS
+================================ */
+.kanban-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  padding-bottom: 10px;
+  margin-bottom: 14px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+/* Status dots */
+.column-pending .kanban-header::before,
+.column-inprogress .kanban-header::before,
+.column-completed .kanban-header::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.column-pending .kanban-header::before {
+  background: #f59e0b;
+}
+
+.column-inprogress .kanban-header::before {
+  background: #3b82f6;
+}
+
+.column-completed .kanban-header::before {
+  background: #10b981;
+}
+
+/* ===============================
+   TASK CARD
+================================ */
+.task-card {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 14px;
+  margin-bottom: 12px;
+  position: relative;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.04);
+  transition: all 0.15s ease;
+}
+
+.task-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+/* ===============================
+   TASK STATUS INDICATOR
+================================ */
+.status-pending {
+  border-left: 4px solid #f59e0b;
+}
+
+.status-inprogress {
+  border-left: 4px solid #3b82f6;
+}
+
+.status-completed {
+  border-left: 4px solid #10b981;
+}
+
+/* ===============================
+   TASK CONTENT
+================================ */
+.task-card h6 {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.task-card p {
+  font-size: 13px;
+  color: #4b5563;
+}
+
+.assigned-user {
+  font-size: 12px;
+  color: #374151;
+  margin-top: 6px;
+}
+
+/* ===============================
+   ADMIN ACTIONS
+================================ */
+.admin-actions {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  display: flex;
+  gap: 8px;
+}
+
+.icon-btn {
+  background: transparent;
+  border: none;
+  color: #9ca3af;
+  cursor: pointer;
+  transition: 0.2s all ease;
+}
+
+.icon-btn:hover {
+  color: #111827;
+}
+
+/* ===============================
+   TASK FOOTER
+================================ */
+.task-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+  font-size: 12px;
+  color: #6b7280;
+}
+
+/* ===============================
+   STATUS BUTTONS
+================================ */
+.status-buttons {
+  display: flex;
+  gap: 6px;
+}
+
+.btn-status {
+  padding: 4px 10px;
+  font-size: 11px;
+  border-radius: 999px;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-status.processing {
+  background: rgba(59, 130, 246, 0.12);
+  color: #2563eb;
+}
+
+.btn-status.completed {
+  background: rgba(16, 185, 129, 0.12);
+  color: #047857;
+}
+
+/* ===============================
+   LOADING
+================================ */
+.task-loading-screen {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 60vh;
+  font-size: 14px;
+  color: #6b7280;
+}
+
+/* ===============================
+   MODAL BACKDROP
+================================ */
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(17, 24, 39, 0.55);
+  backdrop-filter: blur(6px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+/* ===============================
+   MODAL CARD
+================================ */
+.task-modal-content {
+  background: #ffffff;
+  width: 480px;
+  border-radius: 18px;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.3);
+}
+
+/* ===============================
+   MODAL HEADER
+================================ */
+.task-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 22px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.task-modal-header h4 {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+/* ===============================
+   MODAL BODY
+================================ */
+.task-modal-body {
+  padding: 20px 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.modal-row {
+  display: flex;
+  gap: 14px;
+}
+
+.modal-input {
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 1px solid #e5e7eb;
+  background: #f9fafb;
+  font-size: 14px;
+  width: 100%;
+}
+
+.modal-input:focus {
+  outline: none;
+  border-color: #2563eb;
+  background: #ffffff;
+}
+
+/* ===============================
+   MODAL ACTIONS
+================================ */
+.modal-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 6px;
+}
+
+.btn-cancel {
+  flex: 1;
+  background: #e5e7eb;
+  border: none;
+  border-radius: 10px;
+  padding: 12px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.btn-create-submit {
+  flex: 1;
+  background: #2563eb;
+  color: #ffffff;
+  border: none;
+  border-radius: 10px;
+  padding: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s all ease;
+}
+
+.btn-create-submit:hover {
+  background: #1d4ed8;
+}

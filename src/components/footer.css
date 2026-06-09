@@ -1,0 +1,152 @@
+.footer-section {
+  background-color: #f8fafc;
+  padding: 70px 15px 25px;
+  color: #182848;
+  font-family: "Inter", sans-serif;
+}
+
+.footer-top {
+  margin-bottom: 40px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: space-between; /* Row layout */
+}
+
+/* LOGO */
+.footer-logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.footer-logo-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #4b6cb7, #0a152b);
+  display: grid;
+  place-items: center;
+}
+
+.footer-logo-text {
+  font-weight: 700;
+  font-size: 20px;
+  background: linear-gradient(135deg, #4b6cb7, #182848);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* DESCRIPTION */
+.footer-desc {
+  margin-top: 12px;
+  line-height: 1.6;
+  font-size: 16px;
+  font-weight: 500;
+  color: #182848;
+}
+
+/* TITLES */
+.footer-title {
+  color: #182848;
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+
+/* LINKS */
+.footer-links {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-links li {
+  margin: 8px 0;
+}
+
+.footer-links a {
+  color: #182848;
+  font-size: 15px;
+  font-weight: 400;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.footer-links a:hover {
+  padding-left: 5px;
+  color: #4b6cb7;
+}
+
+/* CONTACT */
+.footer-contact {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-contact li {
+  margin: 8px 0;
+  color: #182848;
+  font-size: 15px;
+}
+
+/* DIVIDER */
+.footer-divider {
+  border: none;
+  height: 1px;
+  background: linear-gradient(135deg, #4b6cb7, #182848);
+  margin: 20px 0;
+}
+
+/* COPYRIGHT */
+.footer-bottom {
+  padding: 12px 0;
+  background-color: #ffffff;
+}
+
+.footer-copy {
+  margin: 0;
+  font-size: 14px;
+  color: #182848;
+}
+
+/* RESPONSIVE STYLES */
+
+/* Mobile: stack columns and center content */
+@media (max-width: 768px) {
+  .footer-top {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .footer-brand,
+  .footer-links-col,
+  .footer-contact-col {
+    margin-bottom: 30px;
+  }
+}
+
+/* Extra small mobile tweaks */
+@media (max-width: 576px) {
+  .footer-title {
+    font-size: 20px;
+  }
+
+  .footer-desc {
+    font-size: 15px;
+  }
+
+  .footer-links a,
+  .footer-contact li {
+    font-size: 14px;
+  }
+
+  .footer-logo-text {
+    font-size: 18px;
+    text-align: center;
+  }
+  .footer-logo{
+    justify-content: center;
+    align-items: center;
+  }
+}

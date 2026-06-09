@@ -1,0 +1,146 @@
+/* Sidebar.css */
+.sidebar {
+  width: 250px;          
+  background-color: #0f172a;
+  position: relative;   
+  display: flex;
+  flex-direction: column;
+  transition: width 0.3s ease; /* smooth collapse/expand */
+}
+/* Remove bullets */
+.sidebar ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Brand */
+.sidebar-brand {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px;
+  border-bottom: 1px solid #242424;
+  padding-top: 40px;
+}
+
+.brand-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.brand-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #4b6cb7, #182848);
+  color: #fff;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.brand-text {
+  font-size: 15px;
+  font-weight: 800;
+  color: #dbdbdb;
+  transition: opacity 0.3s ease;
+  margin-left: -20px;
+}
+
+.toggle-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #dbdbdb!important;
+}
+
+/* Menu */
+.sidebar-menu {
+  flex: 1;
+  padding: 8px 12px;
+  overflow-y: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  transition: all 0.3s ease;
+}
+
+.sidebar-menu::-webkit-scrollbar {
+  display: none;
+}
+
+.menu-section {
+  margin-bottom: 14px;
+}
+
+.menu-title {
+  font-size: 11px;
+  font-weight: 700;
+  color: #c7dbf8;
+  letter-spacing: 0.12em;
+  margin: 12px 10px;
+  transition: opacity 0.3s ease;
+}
+
+.menu-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 12px;
+  border-radius: 12px;
+  font-size: 14px;
+  color: #989fa8;
+  text-decoration: none;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.menu-item:hover {
+  background: #b9d9fa;
+  color: #2563eb;
+}
+
+.menu-item.active {
+  background: #b9d9fa;
+  color: #2563eb;
+  font-weight: 600;
+}
+
+/* Footer */
+.sidebar-footer {
+  padding: 12px;
+  border-top: 1px solid #242424;
+}
+
+.logout-btn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 12px;
+  background: none;
+  border: none;
+  border-radius: 12px;
+  font-size: 14px;
+  color: #c24242;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.logout-btn:hover {
+  background: #fef2f2;
+  color: #dc2626;
+}
+
+/* Optional: hide text when sidebar collapsed */
+.sidebar.collapsed .brand-text,
+.sidebar.collapsed .menu-title,
+.sidebar.collapsed .menu-item span,
+.sidebar.collapsed .logout-btn span {
+  display: none;
+}
+.sidebar.collapsed .brand-icon {
+  margin-right: 20px;
+}

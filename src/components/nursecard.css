@@ -1,0 +1,303 @@
+/* =========================================
+   1. GLOBAL & THEME VARIABLES
+   ========================================= */
+:root {
+  --primary-blue: #2563eb;
+  --primary-dark: #111827;
+  --text-main: #1e293b;
+  --text-muted: #64748b;
+  --bg-light: #f8fafc;
+  --white: #ffffff;
+  --border-color: #e2e8f0;
+  --shadow-sm: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
+}
+
+body {
+  background-color: var(--bg-light);
+  font-family: 'Inter', -apple-system, sans-serif;
+  color: var(--text-main);
+}
+
+/* =========================================
+   2. HERO & SEARCH SECTION
+   ========================================= */
+.minimal-hero {
+  padding: 80px 0 60px;
+  background-color: var(--white);
+}
+
+.certified-badge {
+  background-color: #eef2ff !important;
+  color: var(--primary-blue) !important;
+  font-weight: 600;
+  padding: 10px 20px !important;
+  font-size: 0.75rem;
+  letter-spacing: 0.5px;
+  border: 1px solid #dbeafe;
+}
+
+.minimal-title {
+  font-size: 3.5rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--primary-dark);
+}
+
+.minimal-subtitle {
+  font-size: 1.15rem;
+  color: var(--text-muted);
+  max-width: 600px;
+  margin: 0 auto 40px;
+}
+
+/* Floating Search Bar */
+.custom-input-group {
+  background: var(--white);
+  border-radius: 50px !important;
+  padding: 8px;
+  border: 1px solid var(--border-color);
+  max-width: 750px;
+  margin: 0 auto;
+}
+
+.minimal-search-input {
+  border: none !important;
+  box-shadow: none !important;
+  padding-left: 20px !important;
+}
+
+.search-now-btn {
+  background-color: var(--primary-blue) !important;
+  border: none !important;
+  border-radius: 40px !important;
+  padding: 0 35px !important;
+  font-weight: 700;
+}
+
+/* Filter Pills */
+.filter-pill {
+  background: var(--white);
+  border: 1px solid var(--border-color);
+  padding: 8px 24px;
+  border-radius: 50px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  transition: all 0.2s ease;
+  margin: 0 5px;
+}
+
+.filter-pill.active {
+  background-color: var(--primary-dark);
+  color: var(--white);
+  border-color: var(--primary-dark);
+}
+
+/* =========================================
+   3. BENEFIT CARDS (Image 1 Style)
+   ========================================= */
+.benefit-card {
+  background: var(--white);
+  border-radius: 35px;
+  padding: 40px 30px;
+  text-align: center;
+  border: none;
+  height: 100%;
+  transition: transform 0.3s ease;
+}
+
+.benefit-icon-wrapper {
+  width: 70px;
+  height: 70px;
+  border-radius: 22px; /* Squircle */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+}
+
+.benefit-icon-wrapper.blue { background-color: #eff6ff; color: #3b82f6; }
+.benefit-icon-wrapper.green { background-color: #f0fdf4; color: #22c55e; }
+.benefit-icon-wrapper.orange { background-color: #fff7ed; color: #f97316; }
+
+/* =========================================
+   4. NURSE CARDS (Image 3 Style)
+   ========================================= */
+.nurse-card-refined {
+  background: var(--white);
+  border: 1px solid var(--border-color);
+  border-radius: 40px; /* Deep rounded corners from preview */
+  padding: 30px 24px;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  text-align: center;
+}
+
+.nurse-card-refined:hover {
+  transform: translateY(-10px);
+  border-color: var(--primary-blue);
+  box-shadow: 0 20px 40px rgba(37, 99, 235, 0.08);
+}
+
+/* Header & Squircle Image */
+.card-header-minimal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.profile-image-container {
+  width: 60px!important;
+  height: 60px!important;
+  border-radius: 40px; /* Squircle Shape */
+  overflow: hidden;
+  border: 4px solid var(--bg-light);
+  box-shadow: 0 8px 15px rgba(0,0,0,0.05);
+  
+  /* ADD THESE TO ENSURE THE CONTAINER STAYS RIGID */
+  flex-shrink: 0; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.profile-img {
+  width: 100%;
+  height: 100%; /* CHANGE THIS from 50vh to 100% */
+  object-fit: cover; /* This ensures the image fills the 110px square without stretching */
+}
+
+/* Availability Badge - Top Right Blue Pill */
+.status-pill {
+  position: absolute;
+  top: 25px;
+  right: -5px; /* Pulls it slightly off edge for modern look */
+  background: #3498db !important;
+  color: var(--white) !important;
+  border-radius: 50px 0 0 50px !important;
+  padding: 6px 16px !important;
+  font-size: 0.7rem !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  box-shadow: 0 4px 10px rgba(52, 152, 219, 0.3);
+}
+
+.status-pill .dot {
+  width: 6px;
+  height: 6px;
+  background: #10b981; /* Green dot for available */
+  border-radius: 50%;
+}
+
+/* Typography Hierarchy */
+.nurse-name {
+  color: var(--primary-dark);
+  font-weight: 800;
+  font-size: 1.4rem;
+  margin-bottom: 4px;
+}
+
+.nurse-role-label {
+  color: var(--primary-blue);
+  font-weight: 700;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  margin-bottom: 15px;
+}
+
+/* Tag Styling */
+.tag-outline {
+  border: 1px solid #e2e8f0;
+  color: var(--text-muted);
+  padding: 5px 15px;
+  border-radius: 50px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  background: var(--white);
+}
+
+.tag-more {
+  color: #94a3b8;
+  font-size: 0.8rem;
+  font-weight: 600;
+  margin-left: 5px;
+  align-self: center;
+}
+
+/* Footer: Price & Button Alignment */
+.card-footer-minimal {
+  border-top: 1px solid #f1f5f9;
+  margin-top: auto;
+  padding-top: 20px;
+}
+
+.price-box {
+  text-align: left;
+}
+
+.price-box .label {
+  display: block;
+  font-size: 0.65rem;
+  color: #94a3b8;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.price-box .amount {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--primary-dark);
+  margin: 0;
+}
+
+.price-box .amount span {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+/* Action Button - Pill Style */
+.action-pill-btn {
+  border-radius: 50px !important;
+  padding: 12px 28px !important;
+  font-weight: 700 !important;
+  font-size: 0.95rem !important;
+  border: none !important;
+  transition: all 0.3s ease;
+}
+
+.btn-primary-blue {
+  background-color: var(--primary-blue) !important;
+  color: var(--white);
+  box-shadow: 0 10px 20px rgba(37, 99, 235, 0.15);
+}
+
+.btn-primary-blue:hover {
+  background-color: #1d4ed8 !important;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 25px rgba(37, 99, 235, 0.25);
+}
+
+.btn-disabled {
+  background-color: #f1f5f9 !important;
+  color: #94a3b8 !important;
+  cursor: not-allowed;
+}
+
+/* =========================================
+   5. RESPONSIVE UTILITIES
+   ========================================= */
+@media (max-width: 768px) {
+  .minimal-title { font-size: 2.5rem; }
+  .nurse-card-refined { margin-bottom: 20px; }
+  .filter-pills { overflow-x: auto; padding-bottom: 10px; justify-content: flex-start; }
+}

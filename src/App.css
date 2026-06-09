@@ -1,0 +1,28 @@
+/* Root container — full width, no centering, no padding */
+#root {
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+  text-align: left;
+}
+
+/* Dashboard layout */
+.dashboard-layout {
+  display: flex;
+}
+
+.sidebar {
+  position: fixed;
+  top: 64px;
+  left: 0;
+  width: 260px;
+  height: calc(100vh - 64px);
+  z-index: 2000;
+}
+
+.main-content {
+  margin-top: 64px;
+  margin-left: 260px;
+  padding: 24px;
+  width: calc(100% - 260px);
+}
