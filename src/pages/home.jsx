@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Container, Row, Col } from 'react-bootstrap';
-import './home.css'; // Changed to standard import to match your CSS file
+import './home.css';
 import {
   FaUsers,
   FaCalendarAlt,
@@ -23,13 +23,6 @@ const Home = () => {
     { title: "Pharmacy", icon: <FaClinicMedical />, text: "Locate pharmacies and order medicines easily", link: "/pharmacies" }
   ];
 
-  const liveFeed = [
-    "Sara added a blood pressure record — 11m ago",
-    "Omar created a family group — 34m ago",
-    "Ayesha updated medication schedule — 2h ago",
-    "Dr. Khan joined your network — yesterday",
-  ];
-
   return (
     <div className="home-wrapper">
       {/* HERO SECTION */}
@@ -38,7 +31,6 @@ const Home = () => {
         <Container>
           <Row className="align-items-center">
             <Col lg={5}>
-              
               <h1 className="hero-heading">CARESYNC COORDINATE</h1>
               <h2 className="hero-heading">CARE, <span className="text-gradient">TOGETHER</span></h2>
               <p className="hero-text">
@@ -73,7 +65,6 @@ const Home = () => {
       <section className="features-section">
         <Container>
           <div className="text-center mb-5">
-      
             <h2 className="hero-heading text-dark" style={{fontSize: '2.5rem'}}>Our Features</h2>
           </div>
           <Row className="g-4">
@@ -91,84 +82,86 @@ const Home = () => {
           </Row>
         </Container>
       </section>
-{/* WHO WE ARE */}
-<section className="about-section pt-5">
-  <Container>
-    <div className="about-glass-card">
-      <Row className="g-0 align-items-stretch">
-        <Col lg={6} className="p-5">
-          <h6 className="hero-title mb-3" style={{color: 'var(--brand-primary)'}}>OUR MISSION</h6>
-          <h2 className="hero-heading text-dark" style={{fontSize: '2.5rem', marginBottom: '1.5rem'}}>
-            Who <span className="text-gradient">We Are</span>
-          </h2>
-          <p className="about-text">
-            CareSync is a family-centered health coordination platform designed to bring clarity, connection, 
-            and control to caregiving. We believe that no one should manage health challenges alone. 
-            Our mission is to help families stay organized with real-time updates and shared responsibility.
-          </p>
-          <Link to="/about" className="btn-primary-custom text-decoration-none d-inline-block">
-            Explore Our Mission
-          </Link>
-        </Col>
-        <Col lg={6} className="d-flex"> {/* Added d-flex here */}
-    <div className="about-img-wrapper w-100"> {/* Added w-100 */}
-      <img 
-        className="about-img" 
-        src="https://lovinghomecareinc.com/wp-content/uploads/2024/03/Family-Caregivers-Vs-Professional-Home-Care-Comparison-Guide.jpg" 
-        alt="Who we are" 
-      />
-    </div>
-  </Col>
-      </Row>
-    </div>
-  </Container>
-</section>
-      {/* LIVE FEED & SOCIAL SECTION */}
-     {/* LIVE FEED & SOCIAL SECTION */}
-<section className="howit-section-modern">
-  <Container>
-    <Row className="g-5 align-items-center">
-      
-      {/* IMAGE - replaces live activity card */}
-      <Col lg={6}>
-        <div style={{
-          borderRadius: '20px',
-          overflow: 'hidden',
-          boxShadow: '0 20px 60px rgba(0,0,0,0.12)'
-        }}>
-          <img 
-            src="/src/assets/caresync-hero.png"
-            alt="Caregiver checking blood pressure of elderly woman"
-            style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
-          />
-        </div>
-      </Col>
 
-      <Col lg={6}>
-        <h2 className="hero-heading text-dark" style={{ fontSize: '2.5rem' }}>
-          Trusted by Families
-        </h2>
-        <p className="hero-text text-muted">
-          Join thousands of caregivers who have simplified their daily health management routines.
-        </p>
-        
-        <div className="testimonial-card-modern">
-          <FaQuoteRight className="quote-icon" />
-          <p className="mb-3 italic">
-            "CareSync helped our family coordinate my father's meds. Life-changing!"
-          </p>
-          <div className="d-flex align-items-center">
-            <div className="avatar-small me-3">A</div>
-            <div>
-              <h6 className="mb-0 fw-bold">Ayesha K.</h6>
-              <small className="text-muted">Daughter & Caregiver</small>
-            </div>
+      {/* WHO WE ARE */}
+      <section className="about-section pt-5">
+        <Container>
+          <div className="about-glass-card">
+            <Row className="g-0 align-items-stretch">
+              <Col lg={6} className="p-5">
+                <h6 className="hero-title mb-3" style={{color: 'var(--brand-primary)'}}>OUR MISSION</h6>
+                <h2 className="hero-heading text-dark" style={{fontSize: '2.5rem', marginBottom: '1.5rem'}}>
+                  Who <span className="text-gradient">We Are</span>
+                </h2>
+                <p className="about-text">
+                  CareSync is a family-centered health coordination platform designed to bring clarity, connection,
+                  and control to caregiving. We believe that no one should manage health challenges alone.
+                  Our mission is to help families stay organized with real-time updates and shared responsibility.
+                </p>
+                <Link to="/about" className="btn-primary-custom text-decoration-none d-inline-block">
+                  Explore Our Mission
+                </Link>
+              </Col>
+              <Col lg={6} className="d-flex">
+                <div className="about-img-wrapper w-100">
+                  <img
+                    className="about-img"
+                    src="https://lovinghomecareinc.com/wp-content/uploads/2024/03/Family-Caregivers-Vs-Professional-Home-Care-Comparison-Guide.jpg"
+                    alt="Who we are"
+                  />
+                </div>
+              </Col>
+            </Row>
           </div>
-        </div>
-      </Col>
-    </Row>
-  </Container>
-</section>
+        </Container>
+      </section>
+
+      {/* LIVE FEED & SOCIAL SECTION */}
+      <section className="howit-section-modern">
+        <Container>
+          <Row className="g-5 align-items-center">
+
+            {/* ✅ FIXED IMAGE */}
+            <Col lg={6}>
+              <div style={{
+                borderRadius: '20px',
+                overflow: 'hidden',
+                boxShadow: '0 20px 60px rgba(0,0,0,0.12)'
+              }}>
+                <img
+                  src="https://plus.unsplash.com/premium_photo-1682001161140-2a1ca0720c22?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                  alt="Caregiver checking blood pressure of elderly woman"
+                  style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+                />
+              </div>
+            </Col>
+
+            <Col lg={6}>
+              <h2 className="hero-heading text-dark" style={{ fontSize: '2.5rem' }}>
+                Trusted by Families
+              </h2>
+              <p className="hero-text text-muted">
+                Join thousands of caregivers who have simplified their daily health management routines.
+              </p>
+
+              <div className="testimonial-card-modern">
+                <FaQuoteRight className="quote-icon" />
+                <p className="mb-3 italic">
+                  "CareSync helped our family coordinate my father's meds. Life-changing!"
+                </p>
+                <div className="d-flex align-items-center">
+                  <div className="avatar-small me-3">A</div>
+                  <div>
+                    <h6 className="mb-0 fw-bold">Ayesha K.</h6>
+                    <small className="text-muted">Daughter & Caregiver</small>
+                  </div>
+                </div>
+              </div>
+            </Col>
+          </Row>
+        </Container>
+      </section>
+
       {/* FINAL CTA */}
       <section className="final-cta text-center">
         <Container>
