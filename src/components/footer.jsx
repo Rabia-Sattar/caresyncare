@@ -2,13 +2,10 @@ import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import "./footer.css";
 
-
 const Footer = () => {
   return (
     <footer className="footer-section">
       <Container>
-
-        {/* TOP SECTION */}
         <Row className="footer-top">
           {/* BRAND */}
           <Col md={4} className="footer-brand">
@@ -55,8 +52,8 @@ const Footer = () => {
             <h5 className="footer-title">Contact</h5>
             <ul className="footer-contact">
               <li>📧 support@caresync.com</li>
-              <li>📞 (555) 000-0000</li>
-              <li>📍 Pakistan</li>
+              <li>📞 +92 311 2345678</li>
+              <li>📍 Lahore, Punjab, Pakistan</li>
             </ul>
           </Col>
         </Row>
