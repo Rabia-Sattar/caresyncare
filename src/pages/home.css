@@ -9,7 +9,6 @@
   --glass-white: rgba(255, 255, 255, 0.1);
 }
 
-/* SCOPED CONTAINER */
 .home-wrapper {
   overflow-x: hidden;
   font-family: 'Inter', sans-serif;
@@ -18,7 +17,6 @@
   width: 100%;
 }
 
-/* HELPER: GRADIENT TEXT */
 .home-wrapper .text-gradient {
   background: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
   -webkit-background-clip: text;
@@ -26,13 +24,12 @@
   -webkit-text-fill-color: transparent;
 }
 
-/* --- HERO SECTION --- */
 .home-wrapper .hero {
   background: var(--bg-dark);
   color: #fff;
   padding: 100px 0 120px;
   position: relative;
-  overflow-x: hidden; /* FIXED: was overflow:hidden which clipped all content below */
+  overflow-x: hidden;
 }
 
 .home-wrapper .hero-glow {
@@ -65,7 +62,7 @@
 }
 
 .home-wrapper .hero-heading {
-  font-size: clamp(2rem, 5vw, 2.8rem);
+  font-size: clamp(1.8rem, 5vw, 2.8rem);
   font-weight: 800;
   line-height: 1.1;
   margin-bottom: 1.5rem;
@@ -148,7 +145,7 @@
 
 /* --- FEATURES SECTION --- */
 .home-wrapper .features-section {
-  padding: 120px 0;
+  padding: 80px 0;
   background: #f8fafc;
 }
 .home-wrapper .feature-card-modern {
@@ -187,9 +184,9 @@
 .home-wrapper .feature-description { color: var(--text-muted); line-height: 1.7; font-size: 1rem; text-align: center; }
 .home-wrapper .feature-link { text-decoration: none; color: inherit; }
 
-/* --- WHO WE ARE (ABOUT) SECTION --- */
+/* --- ABOUT SECTION --- */
 .home-wrapper .about-section {
-  padding: 100px 0;
+  padding: 80px 0;
   background-color: #f8fafc;
 }
 .home-wrapper .about-glass-card {
@@ -208,6 +205,7 @@
 .home-wrapper .about-img-wrapper {
   width: 100%;
   height: 100%;
+  min-height: 300px;
   overflow: hidden;
   display: flex;
 }
@@ -220,69 +218,16 @@
 }
 .home-wrapper .about-glass-card:hover .about-img { transform: scale(1.08); }
 
-/* --- LIVE ACTIVITY & FEED --- */
+/* --- HOWIT SECTION --- */
 .home-wrapper .howit-section-modern {
-  padding: 120px 0;
+  padding: 80px 0;
   background: #ffffff;
 }
-.home-wrapper .live-activity-card {
-  background: #0f172a;
-  color: white;
-  padding: 3rem;
-  border-radius: 35px;
-  box-shadow: 0 30px 60px rgba(15, 23, 42, 0.2);
-  border: 1px solid rgba(255, 255, 255, 0.05);
-}
-.home-wrapper .live-title {
-  display: flex;
-  align-items: center;
-  font-size: 1.6rem;
-  font-weight: 700;
-  margin-bottom: 2.5rem;
-  gap: 15px;
-}
-.home-wrapper .pulse-dot {
-  width: 10px;
-  height: 10px;
-  background: #10b981;
-  border-radius: 50%;
-  flex-shrink: 0;
-  display: inline-block;
-  animation: pulse 2.5s infinite;
-}
-@keyframes pulse {
-  0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
-  70% { box-shadow: 0 0 0 10px rgba(16, 185, 129, 0); }
-  100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
-}
-.home-wrapper .feed-item-modern {
-  display: flex;
-  align-items: center;
-  padding: 18px 0;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-}
-.home-wrapper .feed-item-modern:last-child { border-bottom: none; }
-.home-wrapper .activity-indicator {
-  width: 6px;
-  height: 6px;
-  background: rgba(255, 255, 255, 0.3);
-  border-radius: 50%;
-  margin-right: 1.2rem;
-  flex-shrink: 0;
-}
-.home-wrapper .activity-content-wrapper {
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-  align-items: center;
-}
-.home-wrapper .activity-text { font-size: 1rem; color: rgba(255, 255, 255, 0.9); }
-.home-wrapper .activity-time { font-size: 0.85rem; color: rgba(255, 255, 255, 0.4); font-weight: 300; }
 
-/* --- TESTIMONIAL CARD --- */
+/* --- TESTIMONIAL --- */
 .home-wrapper .testimonial-card-modern {
   background: #ffffff;
-  padding: 3rem;
+  padding: 2rem;
   border-radius: 30px;
   border: 1px solid #f1f5f9;
   position: relative;
@@ -307,11 +252,12 @@
   justify-content: center;
   font-weight: 800;
   box-shadow: 0 5px 15px rgba(79, 70, 229, 0.2);
+  flex-shrink: 0;
 }
 
 /* --- FINAL CTA --- */
 .home-wrapper .final-cta {
-  padding: 120px 0;
+  padding: 80px 0;
   background: #0f172a;
   color: white;
 }
@@ -334,13 +280,162 @@
 }
 .home-wrapper .floating-action-btn:hover { transform: scale(1.15) translateY(-8px); }
 
-/* --- MOBILE RESPONSIVENESS --- */
+/* ================================
+   TABLET — max 992px
+================================ */
 @media (max-width: 992px) {
-  .home-wrapper .hero { text-align: center; padding: 80px 0 60px; }
-  .home-wrapper .hero-text { margin: 0 auto 2.5rem; }
-  .home-wrapper .hero-grid-modern { height: 400px; margin-top: 60px; }
-  .home-wrapper .about-img-wrapper { min-height: 350px; }
-  .home-wrapper .final-cta { border-radius: 0; }
-  .home-wrapper .btn-primary-custom, .home-wrapper .btn-glass { width: 100%; justify-content: center; }
-  .home-wrapper .d-flex.gap-3 { flex-direction: column; }
+  .home-wrapper .hero {
+    text-align: center;
+    padding: 80px 0 60px;
+  }
+  .home-wrapper .hero-text {
+    margin: 0 auto 2.5rem;
+  }
+  .home-wrapper .hero-grid-modern {
+    height: 380px;
+    margin-top: 50px;
+  }
+  .home-wrapper .d-flex.gap-3 {
+    flex-direction: column;
+    align-items: center;
+  }
+  .home-wrapper .btn-primary-custom,
+  .home-wrapper .btn-glass {
+    width: 100%;
+    justify-content: center;
+  }
+  .home-wrapper .about-img-wrapper {
+    min-height: 350px;
+  }
+  .home-wrapper .howit-section-modern {
+    padding: 60px 0;
+  }
+}
+
+/* ================================
+   MOBILE — max 768px
+================================ */
+@media (max-width: 768px) {
+  /* HERO */
+  .home-wrapper .hero {
+    padding: 60px 0 40px;
+    text-align: center;
+  }
+  .home-wrapper .hero-heading {
+    font-size: clamp(1.5rem, 7vw, 2rem);
+    margin-bottom: 1rem;
+  }
+  .home-wrapper .hero-text {
+    font-size: 0.85rem;
+    margin: 0 auto 2rem;
+  }
+
+  /* Hero grid — stack images vertically */
+  .home-wrapper .hero-grid-modern {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    gap: 12px;
+    margin-top: 40px;
+  }
+  .home-wrapper .grid-item {
+    height: 200px;
+    border-radius: 16px;
+  }
+  .home-wrapper .item-2 {
+    border: 3px solid var(--bg-dark);
+  }
+
+  /* FEATURES */
+  .home-wrapper .features-section {
+    padding: 60px 0;
+  }
+  .home-wrapper .feature-card-modern {
+    padding: 2rem 1.5rem;
+    border-radius: 20px;
+  }
+  .home-wrapper .feature-title {
+    font-size: 1.1rem;
+  }
+  .home-wrapper .feature-description {
+    font-size: 0.9rem;
+  }
+
+  /* ABOUT */
+  .home-wrapper .about-section {
+    padding: 60px 0;
+  }
+  .home-wrapper .about-glass-card {
+    border-radius: 24px;
+  }
+  .home-wrapper .about-glass-card .p-5 {
+    padding: 2rem !important;
+  }
+  .home-wrapper .about-text {
+    font-size: 1rem;
+  }
+  .home-wrapper .about-img-wrapper {
+    min-height: 250px;
+  }
+
+  /* HOWIT / TRUSTED */
+  .home-wrapper .howit-section-modern {
+    padding: 60px 0;
+  }
+  .home-wrapper .testimonial-card-modern {
+    padding: 1.5rem;
+    margin-top: 1.5rem;
+  }
+
+  /* FINAL CTA */
+  .home-wrapper .final-cta {
+    padding: 60px 0;
+  }
+  .home-wrapper .final-cta .hero-heading {
+    font-size: 1.6rem;
+  }
+  .home-wrapper .btn-glass-sign {
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+  }
+
+  /* FLOATING BUTTON */
+  .home-wrapper .floating-action-btn {
+    bottom: 20px;
+    right: 20px;
+    width: 55px;
+    height: 55px;
+    border-radius: 16px;
+  }
+}
+
+/* ================================
+   SMALL MOBILE — max 480px
+================================ */
+@media (max-width: 480px) {
+  .home-wrapper .hero {
+    padding: 50px 0 30px;
+  }
+  .home-wrapper .hero-heading {
+    font-size: 1.4rem;
+  }
+  .home-wrapper .grid-item {
+    height: 160px;
+  }
+  .home-wrapper .feature-icon-wrapper {
+    width: 55px;
+    height: 55px;
+    font-size: 1.3rem;
+  }
+  .home-wrapper .about-glass-card .p-5 {
+    padding: 1.5rem !important;
+  }
+  .home-wrapper .hero-title {
+    font-size: 0.85rem;
+    letter-spacing: 2px;
+  }
+  .home-wrapper .quote-icon {
+    font-size: 2rem;
+  }
 }
