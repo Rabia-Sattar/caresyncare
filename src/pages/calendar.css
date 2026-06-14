@@ -554,3 +554,82 @@
     gap: 1rem;
   }
 }
+/* ================================
+   MOBILE RESPONSIVE — max 768px
+================================ */
+@media (max-width: 768px) {
+
+  /* Calendar tiles chote karo */
+  .react-calendar__tile {
+    height: 50px;
+    padding: 4px 0;
+    font-size: 0.8rem;
+  }
+
+  /* Navigation buttons */
+  .react-calendar__navigation {
+    height: 40px;
+    margin-bottom: 8px;
+  }
+
+  .react-calendar__navigation button {
+    font-size: 0.85rem;
+    min-width: 36px;
+  }
+
+  /* Month/Year label */
+  .react-calendar__navigation__label {
+    font-size: 0.9rem !important;
+    font-weight: 700;
+  }
+
+  /* Weekday names */
+  .react-calendar__month-view__weekdays__weekday {
+    font-size: 0.7rem;
+    padding: 4px 0;
+  }
+
+  /* Event dots */
+  .calendar-event-indicators {
+    bottom: 3px;
+    gap: 2px;
+  }
+
+  .event-dot {
+    width: 4px;
+    height: 4px;
+  }
+
+  /* Calendar wrapper */
+  .family-calendar-wrapper {
+    overflow-x: hidden;
+  }
+
+  .react-calendar {
+    border-radius: 6px;
+  }
+}
+
+@media (max-width: 480px) {
+
+  .react-calendar__tile {
+    height: 42px;
+    font-size: 0.75rem;
+  }
+
+  .react-calendar__navigation button {
+    font-size: 0.8rem;
+    min-width: 30px;
+    padding: 0 4px;
+  }
+
+  .react-calendar__month-view__weekdays__weekday {
+    font-size: 0.65rem;
+  }
+
+  /* Prev/Next arrow buttons */
+  .react-calendar__navigation__prev2-button,
+  .react-calendar__navigation__next2-button {
+    display: none; /* Double arrow hide karo mobile par */
+  }
+}
