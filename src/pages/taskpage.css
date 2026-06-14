@@ -158,3 +158,123 @@
   margin-bottom: 15px;
   opacity: 0.5;
 }
+/* ================================
+   MOBILE RESPONSIVE — max 768px
+================================ */
+@media (max-width: 768px) {
+
+  .dashboard-main-content {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  /* Header */
+  .task-board-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 16px;
+  }
+
+  .btn-new-task {
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+  }
+
+  /* Search bar */
+  .task-action-bar {
+    flex-direction: column;
+    gap: 10px;
+    padding: 12px;
+    border-radius: 16px;
+  }
+
+  .search-group {
+    width: 100%;
+  }
+
+  .btn-utility {
+    width: 100%;
+    text-align: center;
+  }
+
+  /* Task card */
+  .task-card-v2 {
+    border-radius: 16px;
+  }
+
+  .task-name {
+    font-size: 1rem;
+  }
+
+  .task-description {
+    font-size: 0.85rem;
+  }
+
+  /* Status pills */
+  .status-pill {
+    font-size: 0.65rem;
+    padding: 3px 10px;
+  }
+
+  /* Quick actions */
+  .btn-done-modern {
+    padding: 6px 14px;
+    font-size: 0.8rem;
+  }
+
+  /* Group title */
+  .group-title {
+    font-size: 1rem;
+  }
+
+  /* Empty state */
+  .task-empty-state {
+    padding: 40px 16px;
+  }
+
+  .task-empty-state .illustration {
+    font-size: 2.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+
+  .dashboard-main-content {
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+
+  .task-card-v2 {
+    border-radius: 14px;
+  }
+
+  .task-name {
+    font-size: 0.95rem;
+  }
+
+  .task-action-bar {
+    padding: 10px;
+    border-radius: 14px;
+  }
+
+  .search-group input {
+    font-size: 0.9rem;
+  }
+
+  .btn-new-task {
+    padding: 8px 16px !important;
+    font-size: 0.9rem !important;
+    border-radius: 10px !important;
+  }
+
+  .group-title {
+    font-size: 0.95rem;
+  }
+
+  .badge.bg-soft-primary {
+    font-size: 0.75rem !important;
+    padding: 4px 8px !important;
+  }
+}
