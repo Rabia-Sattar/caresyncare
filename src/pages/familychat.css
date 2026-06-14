@@ -556,3 +556,36 @@
     padding: 6px;
   }
 }
+@media (max-width: 768px) {
+
+  .input-bar {
+    padding: 4px 8px;
+    gap: 6px;
+    display: flex;
+    align-items: center;
+    width: 100%;
+  }
+
+  .action-icon {
+    flex-shrink: 0;
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .chat-input-field {
+    flex: 1;
+    min-width: 0; /* ✅ Yeh zaroori hai — flex child ko shrink hone deta hai */
+    padding: 8px 6px;
+    font-size: 0.9rem;
+  }
+
+  .send-action-btn {
+    flex-shrink: 0; /* ✅ Send button kabhi hide nahi hoga */
+    width: 36px;
+    height: 36px;
+    min-width: 36px;
+  }
+}
