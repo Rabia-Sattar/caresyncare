@@ -387,3 +387,164 @@
 .btn-create-submit:hover {
   background: #1d4ed8;
 }
+/* ================================
+   MOBILE RESPONSIVE — max 768px
+================================ */
+@media (max-width: 768px) {
+
+  .task-dashboard {
+    padding: 15px;
+  }
+
+  /* Header */
+  .task-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 16px;
+  }
+
+  .task-header h2 {
+    font-size: 20px;
+  }
+
+  .btn-new-task {
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* Search bar */
+  .task-action-bar {
+    flex-direction: column;
+    gap: 10px;
+    padding: 12px;
+    margin-bottom: 16px;
+  }
+
+  .search-container {
+    width: 100%;
+  }
+
+  .btn-filter {
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* Kanban board — single column */
+  .kanban-board {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .kanban-column {
+    min-height: auto;
+    padding: 12px;
+    border-radius: 14px;
+  }
+
+  .task-card {
+    padding: 12px;
+    border-radius: 10px;
+  }
+
+  .task-card h6 {
+    font-size: 13px;
+    padding-right: 50px; /* admin buttons ke liye space */
+  }
+
+  .task-card p {
+    font-size: 12px;
+  }
+
+  .task-footer {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    margin-top: 8px;
+  }
+
+  .status-buttons {
+    width: 100%;
+    justify-content: flex-start;
+  }
+
+  /* Modal */
+  .task-modal-content {
+    width: 95%;
+    border-radius: 16px;
+  }
+
+  .task-modal-header {
+    padding: 14px 16px;
+  }
+
+  .task-modal-header h4 {
+    font-size: 16px;
+  }
+
+  .task-modal-body {
+    padding: 16px;
+    gap: 10px;
+  }
+
+  .modal-row {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .modal-input {
+    padding: 10px 12px;
+    font-size: 13px;
+  }
+
+  .modal-actions {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .btn-cancel,
+  .btn-create-submit {
+    width: 100%;
+    padding: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+
+  .task-dashboard {
+    padding: 10px;
+  }
+
+  .task-header h2 {
+    font-size: 18px;
+  }
+
+  .kanban-column {
+    padding: 10px;
+    border-radius: 12px;
+  }
+
+  .kanban-header {
+    font-size: 13px;
+  }
+
+  .task-card {
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+
+  .btn-status {
+    padding: 3px 8px;
+    font-size: 10px;
+  }
+
+  .admin-actions {
+    top: 8px;
+    right: 8px;
+  }
+
+  .task-modal-content {
+    width: 98%;
+    border-radius: 14px;
+  }
+}
