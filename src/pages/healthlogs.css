@@ -680,3 +680,195 @@ background: #b9d9fa;
   padding: 12px 24px;
   font-weight: 500;
 }
+/* ================================
+   MOBILE RESPONSIVE — max 768px
+================================ */
+@media (max-width: 768px) {
+
+  .health-content {
+    padding: 15px;
+  }
+
+  /* Header */
+  .health-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 16px;
+  }
+
+  .health-header h1 {
+    font-size: 22px;
+  }
+
+  .header-actions {
+    width: 100%;
+    display: flex;
+    gap: 8px;
+  }
+
+  .header-actions button {
+    flex: 1;
+    margin-left: 0;
+    font-size: 13px;
+  }
+
+  /* Metrics grid — 2 columns */
+  .metrics-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    margin-bottom: 16px;
+  }
+
+  .metric-card {
+    padding: 14px 10px;
+  }
+
+  .metric-value {
+    font-size: 16px;
+  }
+
+  .metric-label {
+    font-size: 0.75rem;
+  }
+
+  /* AI Insights */
+  .ai-insights-container {
+    padding: 16px;
+    margin: 16px 0;
+    border-radius: 18px;
+  }
+
+  .insights-grid-modern {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .insight-card-modern {
+    padding: 14px;
+  }
+
+  /* Tips */
+  .tips-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .tip-card {
+    padding: 14px;
+  }
+
+  /* History */
+  .history-header-modern {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    margin-bottom: 16px;
+  }
+
+  .row-main-content {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 14px;
+    gap: 12px;
+  }
+
+  .col-identity {
+    width: 100%;
+  }
+
+  .col-vitals-spread {
+    width: 100%;
+    border-left: none;
+    border-top: 1px solid #f1f5f9;
+    padding: 12px 0 0 0;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .vital-item {
+    min-width: 80px;
+  }
+
+  .big-val {
+    font-size: 1rem;
+  }
+
+  .status-pill {
+    margin-left: 0 !important;
+  }
+
+  /* Empty state */
+  .empty-state {
+    padding: 32px 16px;
+  }
+
+  /* Chart */
+  .chart-wrapper {
+    padding: 14px;
+    border-radius: 12px;
+  }
+
+  /* Modal */
+  .modern-vitals-modal {
+    margin: 10px;
+    border-radius: 20px;
+  }
+
+  .dual-input-wrapper {
+    flex-direction: row;
+  }
+}
+
+@media (max-width: 480px) {
+
+  .health-content {
+    padding: 10px;
+  }
+
+  .health-header h1 {
+    font-size: 20px;
+  }
+
+  /* Metrics — single column */
+  .metrics-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  .metric-card {
+    padding: 12px 8px;
+    border-radius: 12px;
+  }
+
+  .metric-icon {
+    width: 30px;
+    height: 30px;
+  }
+
+  .metric-value {
+    font-size: 15px;
+  }
+
+  .ai-title h4 {
+    font-size: 1rem;
+  }
+
+  .ai-title p {
+    font-size: 0.8rem;
+  }
+
+  .insight-body {
+    font-size: 0.85rem;
+  }
+
+  .row-notes {
+    font-size: 0.8rem;
+    padding: 8px 14px;
+  }
+
+  .title-stack h4 {
+    font-size: 1rem;
+  }
+}
