@@ -449,3 +449,149 @@
 .module-actions .delete-trigger { color: #f43f5e; }
 .module-actions .edit-trigger:hover { color: #38bdf8; }
 .module-actions .delete-trigger:hover { color: #f71238; }
+/* ================================
+   MOBILE RESPONSIVE — max 768px
+================================ */
+@media (max-width: 768px) {
+
+  .notes-canvas {
+    padding: 1rem 0;
+  }
+
+  /* Header */
+  .intel-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 1rem 0;
+    margin-bottom: 1.5rem;
+  }
+
+  .header-title {
+    font-size: 1.6rem;
+  }
+
+  .header-subtitle {
+    font-size: 0.85rem;
+  }
+
+  /* Search */
+  .search-wrapper {
+    width: 100%;
+  }
+
+  /* Input glass section */
+  .intel-glass-wrapper {
+    padding: 20px 15px;
+    min-height: auto;
+  }
+
+  .capture-console {
+    gap: 14px;
+  }
+
+  .glass-capture-card {
+    padding: 16px;
+  }
+
+  .glass-textarea {
+    font-size: 14px;
+  }
+
+  /* Action buttons */
+  .external-actions {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .button-cluster {
+    width: 100%;
+    gap: 10px;
+  }
+
+  .btn-out-cancel,
+  .btn-out-save {
+    flex: 1;
+    text-align: center;
+    padding: 10px 16px;
+  }
+
+  /* Notes cards */
+  .intel-module-card {
+    border-radius: 10px;
+  }
+
+  .module-inner {
+    padding: 14px;
+  }
+
+  .module-header {
+    margin-bottom: 12px;
+  }
+
+  .module-content p {
+    font-size: 13px;
+    margin-bottom: 16px;
+  }
+
+  .module-footer {
+    padding-top: 12px;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .module-actions {
+    opacity: 1; /* Mobile par hamesha visible */
+  }
+
+  .module-actions button {
+    font-size: 18px; /* Touch friendly */
+    padding: 6px;
+  }
+}
+
+@media (max-width: 480px) {
+
+  .notes-canvas {
+    padding: 0.75rem 0;
+  }
+
+  .header-title {
+    font-size: 1.4rem;
+  }
+
+  .intel-glass-wrapper {
+    padding: 15px 10px;
+  }
+
+  .glass-capture-card {
+    padding: 14px;
+  }
+
+  .terminal-text {
+    font-size: 10px;
+  }
+
+  .glass-textarea {
+    font-size: 13px;
+  }
+
+  .btn-out-cancel,
+  .btn-out-save {
+    font-size: 12px;
+    padding: 8px 12px;
+  }
+
+  .security-status {
+    font-size: 9px;
+  }
+
+  .module-date {
+    font-size: 10px;
+  }
+
+  .system-id {
+    font-size: 8px;
+  }
+}
