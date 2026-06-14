@@ -240,3 +240,151 @@
     padding-left: 10px;
   }
 }
+/* ================================
+   MOBILE RESPONSIVE — max 768px
+================================ */
+@media (max-width: 768px) {
+
+  /* Hero */
+  .pharma-hero-clean {
+    padding: 50px 0 60px;
+  }
+
+  .pharma-hero-clean h1 {
+    font-size: 1.8rem !important;
+  }
+
+  .pharma-hero-clean p {
+    font-size: 0.9rem !important;
+  }
+
+  /* Search */
+  .search-wrapper-specialist {
+    flex-direction: column;
+    gap: 0;
+    border-radius: 12px;
+    margin: 0 15px;
+    overflow: hidden;
+  }
+
+  .search-wrapper-specialist input {
+    width: 100%;
+    padding: 12px 15px;
+    font-size: 0.9rem;
+  }
+
+  .btn-specialist-search {
+    width: 100%;
+    padding: 12px !important;
+    font-size: 0.9rem;
+  }
+
+  /* Filter chips */
+  .pharma-chip {
+    padding: 8px 16px;
+    font-size: 0.8rem;
+  }
+
+  /* Pharmacy card */
+  .pharma-modern-card {
+    border-radius: 18px;
+  }
+
+  .pharma-modern-card:hover {
+    transform: translateY(-5px);
+  }
+
+  .pharma-logo-squircle {
+    width: 55px;
+    height: 55px;
+    border-radius: 14px;
+  }
+
+  .pharma-logo-squircle img {
+    border-radius: 12px;
+  }
+
+  .pharma-title {
+    font-size: 1.1rem;
+  }
+
+  .detail-item-modern {
+    font-size: 0.8rem;
+    gap: 8px;
+    margin-bottom: 8px;
+  }
+
+  .soft-tag {
+    font-size: 0.7rem;
+    padding: 3px 10px;
+  }
+
+  .rating-pill {
+    font-size: 0.8rem;
+    padding: 4px 10px;
+  }
+
+  /* Card footer */
+  .card-footer-modern {
+    flex-direction: column !important;
+    gap: 10px;
+    align-items: flex-start !important;
+  }
+
+  .btn-order-modern-compact {
+    width: 100% !important;
+    padding: 10px 16px !important;
+    border-radius: 10px !important;
+    justify-content: center;
+  }
+
+  .delivery-status-pill {
+    font-size: 0.75rem;
+  }
+}
+
+@media (max-width: 480px) {
+
+  .pharma-hero-clean {
+    padding: 35px 0 45px;
+  }
+
+  .pharma-hero-clean h1 {
+    font-size: 1.5rem !important;
+  }
+
+  .search-wrapper-specialist {
+    margin: 0 10px;
+    border-radius: 10px;
+  }
+
+  .pharma-chip {
+    padding: 6px 14px;
+    font-size: 0.75rem;
+  }
+
+  .pharma-modern-card {
+    border-radius: 14px;
+  }
+
+  .pharma-logo-squircle {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+  }
+
+  .pharma-title {
+    font-size: 1rem;
+  }
+
+  .detail-item-modern {
+    font-size: 0.75rem;
+  }
+
+  .soft-tag {
+    font-size: 0.65rem;
+    padding: 3px 8px;
+    margin-right: 5px;
+    margin-bottom: 5px;
+  }
+}
