@@ -64,7 +64,7 @@ const Footer = () => {
         <div className="footer-bottom">
           <Row>
             <Col className="text-center">
-              <p className="footer-copy">© 2025 CareSync. All rights reserved.</p>
+              <p className="footer-copy">© 2026 CareSync. All rights reserved.</p>
             </Col>
           </Row>
         </div>
