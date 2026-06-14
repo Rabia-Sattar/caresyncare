@@ -210,3 +210,144 @@
 .badge[bg="soft-primary"] {
   background-color: var(--soft-primary) !important;
 }
+/* ================================
+   MOBILE RESPONSIVE — max 768px
+================================ */
+@media (max-width: 768px) {
+
+  /* Hero */
+  .modern-hero {
+    padding: 30px 0 0;
+    min-height: auto;
+  }
+
+  .modern-hero h1 {
+    font-size: 1.8rem !important;
+  }
+
+  .modern-hero p {
+    font-size: 0.9rem !important;
+  }
+
+  /* Search bar */
+  .search-container-modern {
+    flex-direction: row;
+    flex-wrap: wrap;
+    border-radius: 12px;
+    padding: 4px;
+  }
+
+  .search-container-modern input {
+    font-size: 0.9rem;
+    padding: 10px;
+    width: 100%;
+  }
+
+  .btn-search-hero {
+    width: 100% !important;
+    border-radius: 10px !important;
+    padding: 12px !important;
+    font-size: 0.9rem !important;
+  }
+
+  /* Filter pills */
+  .filter-scroll-wrapper {
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
+  .filter-pill {
+    padding: 8px 16px;
+    font-size: 0.85rem;
+  }
+
+  /* Doctor card */
+  .modern-doctor-card {
+    border-radius: 16px !important;
+  }
+
+  .modern-doctor-card:hover {
+    transform: translateY(-5px);
+  }
+
+  .card-top-info {
+    padding: 16px;
+  }
+
+  .doctor-avatar-box {
+    width: 65px;
+    height: 65px;
+  }
+
+  .doctor-avatar-box img {
+    border-radius: 14px;
+  }
+
+  .btn-wishlist {
+    width: 35px;
+    height: 35px;
+    border-radius: 10px;
+  }
+
+  .meta-item {
+    font-size: 0.8rem;
+  }
+
+  .btn-modern-action {
+    padding: 12px !important;
+    border-radius: 12px !important;
+    font-size: 0.9rem !important;
+  }
+
+  .rating-pill {
+    font-size: 0.75rem;
+    padding: 3px 10px;
+  }
+}
+
+@media (max-width: 480px) {
+
+  .modern-hero h1 {
+    font-size: 1.5rem !important;
+  }
+
+  .search-container-modern {
+    border-radius: 10px;
+  }
+
+  .search-container-modern .search-icon {
+    margin-left: 10px;
+  }
+
+  .filter-pill {
+    padding: 6px 14px;
+    font-size: 0.8rem;
+  }
+
+  .card-top-info {
+    padding: 14px;
+  }
+
+  .doctor-avatar-box {
+    width: 55px;
+    height: 55px;
+  }
+
+  .doctor-avatar-box img {
+    border-radius: 12px;
+  }
+
+  .meta-item {
+    font-size: 0.75rem;
+    gap: 6px;
+  }
+
+  .modern-doctor-card {
+    border-radius: 14px !important;
+  }
+
+  .btn-modern-action {
+    padding: 10px !important;
+    font-size: 0.85rem !important;
+  }
+}
