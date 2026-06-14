@@ -238,3 +238,148 @@
     padding: 12px;
   }
 }
+/* ================================
+   MOBILE RESPONSIVE — max 768px
+================================ */
+@media (max-width: 768px) {
+
+  /* Hero section */
+  .nurse-hero {
+    padding: 50px 0 60px;
+  }
+
+  .nurse-hero h1 {
+    font-size: 1.8rem !important;
+  }
+
+  .nurse-hero p {
+    font-size: 0.9rem !important;
+  }
+
+  /* Search */
+  .search-wrapper-nurse {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 0;
+    border-radius: 12px;
+    margin: 0 15px;
+  }
+
+  .nurse-search-input {
+    width: 100%;
+    padding: 12px 15px;
+    font-size: 0.9rem;
+  }
+
+  .btn-search-nurse {
+    width: 100%;
+    margin-left: 0 !important;
+    padding: 12px !important;
+    border-radius: 0 0 12px 12px;
+    font-size: 0.9rem;
+  }
+
+  .search-icon-nurse {
+    padding-left: 10px;
+  }
+
+  /* Nurse card */
+  .nurse-premium-card {
+    border-radius: 20px;
+  }
+
+  .nurse-premium-card:hover {
+    transform: translateY(-5px);
+  }
+
+  .nurse-name-bold {
+    font-size: 1rem;
+  }
+
+  .nurse-stats-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+
+  .stat-box {
+    padding: 8px;
+    border-radius: 12px;
+  }
+
+  .nurse-bio-truncate {
+    font-size: 0.8rem;
+  }
+
+  .nurse-card-action-bar {
+    border-radius: 0 0 20px 20px;
+    padding: 12px !important;
+  }
+
+  .btn-nurse-action {
+    padding: 8px 16px !important;
+    font-size: 0.8rem !important;
+    border-radius: 10px !important;
+  }
+
+  /* Profile wrapper */
+  .profile-wrapper {
+    padding: 20px 15px;
+    min-height: auto !important;
+  }
+}
+
+@media (max-width: 480px) {
+
+  .nurse-hero {
+    padding: 35px 0 45px;
+  }
+
+  .nurse-hero h1 {
+    font-size: 1.5rem !important;
+  }
+
+  .search-wrapper-nurse {
+    margin: 0 10px;
+  }
+
+  .nurse-premium-card {
+    border-radius: 16px;
+  }
+
+  .nurse-name-bold {
+    font-size: 0.95rem;
+  }
+
+  .nurse-role-tag {
+    font-size: 0.7rem;
+  }
+
+  .nurse-stats-grid {
+    gap: 6px;
+  }
+
+  .stat-label {
+    font-size: 0.6rem;
+  }
+
+  .stat-value {
+    font-size: 0.75rem;
+  }
+
+  .nurse-glass-tag {
+    font-size: 0.65rem;
+    padding: 4px 10px;
+  }
+
+  .btn-nurse-action {
+    width: 100% !important;
+    text-align: center;
+    justify-content: center;
+  }
+
+  .nurse-card-action-bar {
+    flex-direction: column !important;
+    gap: 10px;
+    border-radius: 0 0 16px 16px;
+  }
+}
