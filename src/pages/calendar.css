@@ -633,3 +633,163 @@
     display: none; /* Double arrow hide karo mobile par */
   }
 }
+/* ================================
+   CALENDAR MOBILE FIX — max 768px
+================================ */
+@media (max-width: 768px) {
+
+  .calendar-app-wrapper {
+    padding: 1rem;
+  }
+
+  /* Header */
+  .app-top-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 1.5rem;
+  }
+
+  .header-text h1 {
+    font-size: 1.5rem;
+  }
+
+  .add-event-btn {
+    width: 100%;
+    justify-content: center;
+    padding: 10px 16px;
+  }
+
+  /* Main layout — single column */
+  .calendar-main-layout {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  /* Calendar header */
+  .calendar-header {
+    padding: 1rem;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .month-display {
+    font-size: 1.1rem;
+  }
+
+  .nav-btn {
+    width: 36px;
+    height: 36px;
+  }
+
+  .today-btn {
+    height: 36px;
+    padding: 0 14px;
+    font-size: 0.8rem;
+  }
+
+  /* Calendar grid — smaller cells */
+  .calendar-grid {
+    min-height: auto;
+  }
+
+  .day-cell {
+    min-height: 60px;
+    padding: 2px;
+  }
+
+  .day-inner {
+    padding: 3px;
+    gap: 2px;
+  }
+
+  .date-label {
+    font-size: 0.7rem;
+    width: 18px;
+    height: 18px;
+  }
+
+  /* Event pills — very compact */
+  .event-pill {
+    font-size: 0.55rem;
+    padding: 2px 4px;
+    border-radius: 4px;
+    max-width: 100%;
+  }
+
+  .delete-event {
+    font-size: 10px;
+    padding-left: 2px;
+  }
+
+  /* Sidebar */
+  .calendar-sidebar {
+    max-height: none;
+    overflow-y: visible;
+    padding-right: 0;
+  }
+
+  /* Pro tips */
+  .pro-tips-grid {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+
+  /* Modal */
+  .modal-container {
+    width: 98%;
+    border-radius: 14px;
+  }
+
+  .modal-header {
+    padding: 1rem;
+  }
+
+  .modal-body {
+    padding: 1rem;
+    gap: 1rem;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+
+  .modal-footer {
+    padding: 1rem;
+    flex-direction: column;
+    gap: 8px;
+  }
+}
+
+@media (max-width: 480px) {
+
+  .calendar-app-wrapper {
+    padding: 0.75rem;
+  }
+
+  .header-text h1 {
+    font-size: 1.3rem;
+  }
+
+  .day-cell {
+    min-height: 50px;
+  }
+
+  .weekday-header {
+    font-size: 0.65rem;
+    padding: 0.5rem 0;
+  }
+
+  .event-pill {
+    display: none; /* Bahut choti screen par events hide — dots dikhenge */
+  }
+
+  .date-label {
+    font-size: 0.65rem;
+  }
+
+  .month-display {
+    font-size: 1rem;
+  }
+}
