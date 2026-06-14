@@ -190,3 +190,120 @@
   border-radius: 10px;
   transition: width 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
+/* ================================
+   MOBILE RESPONSIVE — max 768px
+================================ */
+@media (max-width: 768px) {
+
+  .profile-wrapper {
+    padding: 20px 15px;
+    margin-top: 20px;
+    align-items: flex-start;
+  }
+
+  .profile-card {
+    padding: 24px 20px;
+    border-radius: 20px;
+  }
+
+  .avatar-main {
+    width: 70px;
+    height: 70px;
+    font-size: 1.7rem;
+    border-radius: 18px;
+  }
+
+  .avatar-glow {
+    width: 70px;
+    height: 70px;
+  }
+
+  .header-text h2 {
+    font-size: 1.3rem;
+  }
+
+  .header-text p {
+    font-size: 0.85rem;
+  }
+
+  /* Status card */
+  .status-card {
+    padding: 14px 16px;
+    margin-bottom: 24px;
+    gap: 10px;
+  }
+
+  .action-button {
+    padding: 8px 14px;
+    font-size: 0.8rem;
+    white-space: nowrap;
+  }
+
+  /* Stats grid — 2 columns */
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  .stat-item {
+    padding: 10px;
+    border-radius: 10px;
+  }
+
+  .stat-value {
+    font-size: 1rem;
+  }
+
+  .stat-label {
+    font-size: 0.65rem;
+  }
+
+  .productivity-section h3 {
+    font-size: 0.95rem;
+    margin-bottom: 14px;
+  }
+
+  .progress-wrapper {
+    margin-top: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+
+  .profile-wrapper {
+    padding: 15px 10px;
+    margin-top: 10px;
+  }
+
+  .profile-card {
+    padding: 20px 16px;
+    border-radius: 16px;
+  }
+
+  .avatar-main {
+    width: 65px;
+    height: 65px;
+    font-size: 1.5rem;
+    border-radius: 16px;
+  }
+
+  .header-text h2 {
+    font-size: 1.2rem;
+  }
+
+  .status-card {
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .action-button {
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+  }
+
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+  }
+}
