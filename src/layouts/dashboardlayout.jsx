@@ -1,20 +1,27 @@
 // src/layouts/DashboardLayout.jsx
 import React, { useState, useRef, useEffect } from "react";
 import { Outlet } from "react-router-dom";
-import { Bell, AlertTriangle, CheckCheck, X, Trash2 } from "lucide-react";
+import { Bell, AlertTriangle, CheckCheck, X, Trash2, Menu } from "lucide-react";
 import axiosInstance from "../api/axiosinstance";
 import Sidebar from "../components/sidebar";
 import "./dashboardlayout.css";
 
 export default function DashboardLayout() {
   const [collapsed, setCollapsed] = useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false); // ✅ Mobile sidebar
   const [showDropdown, setShowDropdown] = useState(false);
   const dropdownRef = useRef();
 
   const [notifications, setNotifications] = useState([]);
   const user = JSON.parse(localStorage.getItem("user"));
 
-  const toggleSidebar = () => setCollapsed(!collapsed);
+  const toggleSidebar = () => {
+    if (window.innerWidth <= 768) {
+      setMobileOpen(!mobileOpen); // ✅ Mobile par overlay sidebar
+    } else {
+      setCollapsed(!collapsed); // Desktop par collapse
+    }
+  };
 
   const fetchNotifications = async () => {
     try {
@@ -39,6 +46,17 @@ export default function DashboardLayout() {
     };
     document.addEventListener("mousedown", handleClickOutside);
     return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
+  // ✅ Window resize par mobile state reset
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth > 768) {
+        setMobileOpen(false);
+      }
+    };
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   const toggleDropdown = () => setShowDropdown((prev) => !prev);
@@ -67,7 +85,6 @@ export default function DashboardLayout() {
     }
   };
 
-  // 🗑️ Delete single alert
   const deleteAlert = async (id, e) => {
     e.stopPropagation();
     const confirmed = window.confirm("Are you sure you want to delete this alert?");
@@ -81,7 +98,6 @@ export default function DashboardLayout() {
     }
   };
 
-  // 🗑️ Clear all — sirf apne bheje hue
   const clearAllMyAlerts = async () => {
     try {
       const mine = notifications.filter(
@@ -107,7 +123,6 @@ export default function DashboardLayout() {
     const diffMins = Math.floor(diffMs / 60000);
     const diffHours = Math.floor(diffMins / 60);
     const diffDays = Math.floor(diffHours / 24);
-
     if (diffMins < 1) return "Just now";
     if (diffMins < 60) return `${diffMins}m ago`;
     if (diffHours < 24) return `${diffHours}h ago`;
@@ -120,15 +135,33 @@ export default function DashboardLayout() {
 
   return (
     <div className="dashboard-container">
+
+      {/* ✅ Mobile Overlay */}
+      {mobileOpen && (
+        <div
+          className="sidebar-overlay"
+          onClick={() => setMobileOpen(false)}
+        />
+      )}
+
       <Sidebar
         collapsed={collapsed}
         setCollapsed={setCollapsed}
         toggleSidebar={toggleSidebar}
+        mobileOpen={mobileOpen}        // ✅ Pass kiya
+        setMobileOpen={setMobileOpen}  // ✅ Pass kiya
       />
 
-      <div className={`dashboard-content ${collapsed ? "collapsed" : ""}`}>
+      <div className="dashboard-content">
         <div className="dashboard-topbar">
           <div className="topbar-left">
+            {/* ✅ Mobile Hamburger Button */}
+            <button
+              className="mobile-menu-btn"
+              onClick={toggleSidebar}
+            >
+              <Menu size={22} color="white" />
+            </button>
             <h2>Welcome, {user?.name || "User"} 👋</h2>
           </div>
 
@@ -149,7 +182,6 @@ export default function DashboardLayout() {
 
               {showDropdown && (
                 <div className="notification-dropdown">
-                  {/* Header */}
                   <div className="notif-header">
                     <div className="notif-title-row">
                       <AlertTriangle size={16} className="notif-title-icon" />
@@ -174,7 +206,6 @@ export default function DashboardLayout() {
                     </div>
                   </div>
 
-                  {/* List */}
                   <div className="notif-list">
                     {notifications.length === 0 ? (
                       <div className="no-notifications">
@@ -186,25 +217,16 @@ export default function DashboardLayout() {
                       notifications.map((n) => {
                         const isUnread = !n.readBy?.map(String).includes(String(user?._id));
                         const isMine = n.sender?._id?.toString() === String(user?._id);
-
                         return (
-                          <div
-                            key={n._id}
-                            className={`notification-item ${isUnread ? "unread" : ""}`}
-                          >
+                          <div key={n._id} className={`notification-item ${isUnread ? "unread" : ""}`}>
                             <div className="notif-indicator" />
-
-                            <div
-                              className="notif-avatar"
-                              style={{
-                                background: isMine
-                                  ? "linear-gradient(135deg, #2563eb, #1d4ed8)"
-                                  : "linear-gradient(135deg, #ef4444, #b91c1c)",
-                              }}
-                            >
+                            <div className="notif-avatar" style={{
+                              background: isMine
+                                ? "linear-gradient(135deg, #2563eb, #1d4ed8)"
+                                : "linear-gradient(135deg, #ef4444, #b91c1c)",
+                            }}>
                               {n.sender?.name?.charAt(0)?.toUpperCase() || "?"}
                             </div>
-
                             <div className="notif-content">
                               <div className="notif-sender">
                                 {isMine ? "📤" : "🚨"}{" "}
@@ -214,24 +236,14 @@ export default function DashboardLayout() {
                               <div className="notif-message">{n.message}</div>
                               <div className="notif-time">{formatTime(n.createdAt)}</div>
                             </div>
-
-                            {/* Action buttons */}
                             <div className="notif-actions">
                               {isUnread && (
-                                <button
-                                  className="notif-read-btn"
-                                  onClick={(e) => markAsRead(n._id, e)}
-                                  title="Mark as read"
-                                >
+                                <button className="notif-read-btn" onClick={(e) => markAsRead(n._id, e)} title="Mark as read">
                                   <CheckCheck size={12} />
                                 </button>
                               )}
                               {isMine && (
-                                <button
-                                  className="notif-delete-btn"
-                                  onClick={(e) => deleteAlert(n._id, e)}
-                                  title="Delete alert"
-                                >
+                                <button className="notif-delete-btn" onClick={(e) => deleteAlert(n._id, e)} title="Delete alert">
                                   <Trash2 size={12} />
                                 </button>
                               )}
