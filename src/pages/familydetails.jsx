@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import { useParams, Link } from "react-router-dom";
 import { Card, Button, Form, Modal, Badge, Spinner, Row, Col, Container } from "react-bootstrap";
 import API from "../api/axiosinstance";
@@ -12,53 +12,78 @@ const FamilyDetails = () => {
     const [showAddModal, setShowAddModal] = useState(false);
     const [newMemberEmail, setNewMemberEmail] = useState("");
     const [removeMode, setRemoveMode] = useState(false);
+    const [addLoading, setAddLoading] = useState(false);
+    const [removingId, setRemovingId] = useState(null);
+    const [copySuccess, setCopySuccess] = useState(false);
 
     const user = JSON.parse(localStorage.getItem("user"));
     const isAdmin = family?.createdBy?._id === user._id;
 
-    const fetchFamily = async () => {
+    // FIX #1: Sirf specific family ID se fetch karo — poori list nahi
+    const fetchFamily = useCallback(async () => {
         try {
-            const res = await API.get("/api/family/my-families");
-            const found = res.data.find(fam => fam._id === id);
-            setFamily(found || null);
+            const res = await API.get(`/api/family/${id}`);
+            setFamily(res.data);
         } catch (err) {
             console.error(err);
+            setFamily(null);
         } finally {
             setLoading(false);
         }
-    };
+    }, [id]);
 
     useEffect(() => {
         fetchFamily();
-    }, [id]);
+    }, [fetchFamily]);
 
+    // FIX #2: Member add hone ke baad local state update karo, dobara fetch mat karo
     const handleAddMember = async (e) => {
         e.preventDefault();
+        setAddLoading(true);
         try {
             const emailsArray = newMemberEmail.split(",").map(e => e.trim());
             const res = await API.post("/api/family/add-member", {
                 familyId: family._id,
                 userEmails: emailsArray
             });
+            // Optimistic: server se aaya updated family directly set karo
             setFamily(res.data.family);
             setNewMemberEmail("");
             setShowAddModal(false);
         } catch (err) {
             alert(err.response?.data?.message || "Failed to add member");
+        } finally {
+            setAddLoading(false);
         }
     };
 
+    // FIX #3: Remove ke baad bhi local state update karo — no refetch
     const handleRemoveMember = async (memberId) => {
         if (!window.confirm("Are you sure you want to remove this member?")) return;
+        setRemovingId(memberId);
         try {
             await API.post("/api/family/remove-member", {
                 familyId: family._id,
                 userId: memberId
             });
-            fetchFamily();
+            // Local state se member hata do — API call ki zaroorat nahi
+            setFamily(prev => ({
+                ...prev,
+                members: prev.members.filter(m => m._id !== memberId)
+            }));
         } catch (err) {
             alert(err.response?.data?.message || "Failed to remove member");
+        } finally {
+            setRemovingId(null);
         }
+    };
+
+    // FIX #4: Invite code copy karna
+    const handleCopyCode = () => {
+        navigator.clipboard.writeText(family.inviteCode).then(() => {
+            setCopySuccess(true);
+            setTimeout(() => setCopySuccess(false), 2000);
+        });
     };
 
     if (loading) return <div className="loader-box"><Spinner animation="border" variant="primary" /></div>;
@@ -97,9 +122,16 @@ const FamilyDetails = () => {
                             </div>
                             <div className="d-flex align-items-center justify-content-between border p-2 rounded">
                                 <code className="text-truncate">{family.inviteCode}</code>
-                                <FaCopy className="text-muted cursor-pointer" />
+                                <FaCopy
+                                    className={`cursor-pointer ${copySuccess ? "text-success" : "text-muted"}`}
+                                    title={copySuccess ? "Copied!" : "Copy code"}
+                                    onClick={handleCopyCode}
+                                    style={{ cursor: "pointer" }}
+                                />
                             </div>
-                            <small className="text-muted mt-1 d-block">Use this code to invite new members.</small>
+                            <small className="text-muted mt-1 d-block">
+                                {copySuccess ? "✓ Code copied!" : "Use this code to invite new members."}
+                            </small>
                         </div>
 
                         {isAdmin && (
@@ -107,8 +139,8 @@ const FamilyDetails = () => {
                                 <Button variant="primary" onClick={() => setShowAddModal(true)}>
                                     <FaUserPlus className="me-2" /> Add Member
                                 </Button>
-                                <Button 
-                                    variant={removeMode ? "danger" : "outline-secondary"} 
+                                <Button
+                                    variant={removeMode ? "danger" : "outline-secondary"}
                                     onClick={() => setRemoveMode(!removeMode)}
                                 >
                                     {removeMode ? "Exit Remove Mode" : "Manage Members"}
@@ -121,21 +153,39 @@ const FamilyDetails = () => {
                 {/* Members List */}
                 <Col lg={8}>
                     <Card className="shadow-sm border-0 p-3 mb-4">
-                        <h6 className="fw-bold mb-3">Active Members <Badge bg="light" text="dark">{family.members.length}</Badge></h6>
+                        <h6 className="fw-bold mb-3">
+                            Active Members <Badge bg="light" text="dark">{family.members.length}</Badge>
+                        </h6>
                         {family.members.map(m => (
                             <div key={m._id} className="d-flex align-items-center justify-content-between mb-2 p-2 border-bottom">
                                 <div className="d-flex align-items-center">
-                                    <div className="avatar-circle me-3">{m.name.split(' ').map(n => n[0]).join('')}</div>
+                                    <div className="avatar-circle me-3">
+                                        {m.name.split(' ').map(n => n[0]).join('')}
+                                    </div>
                                     <div>
                                         <div className="d-flex align-items-center">
                                             <span className="fw-semibold">{m.name}</span>
-                                            {m._id === family.createdBy._id && <Badge bg="warning" text="dark" className="ms-2">Admin</Badge>}
+                                            {m._id === family.createdBy._id && (
+                                                <Badge bg="warning" text="dark" className="ms-2">Admin</Badge>
+                                            )}
                                         </div>
-                                        <div className="text-muted small"><FaRegEnvelope className="me-1" /> {m.email}</div>
+                                        <div className="text-muted small">
+                                            <FaRegEnvelope className="me-1" /> {m.email}
+                                        </div>
                                     </div>
                                 </div>
                                 {isAdmin && removeMode && m._id !== family.createdBy._id && (
-                                    <Button variant="outline-danger" size="sm" onClick={() => handleRemoveMember(m._id)}>Remove</Button>
+                                    <Button
+                                        variant="outline-danger"
+                                        size="sm"
+                                        disabled={removingId === m._id}
+                                        onClick={() => handleRemoveMember(m._id)}
+                                    >
+                                        {removingId === m._id
+                                            ? <Spinner size="sm" animation="border" />
+                                            : "Remove"
+                                        }
+                                    </Button>
                                 )}
                             </div>
                         ))}
@@ -160,8 +210,25 @@ const FamilyDetails = () => {
                             />
                         </Form.Group>
                         <div className="d-flex gap-2">
-                            <Button variant="light" className="w-50" onClick={() => setShowAddModal(false)}>Cancel</Button>
-                            <Button type="submit" variant="primary" className="w-50">Send Invite</Button>
+                            <Button
+                                variant="light"
+                                className="w-50"
+                                onClick={() => setShowAddModal(false)}
+                                disabled={addLoading}
+                            >
+                                Cancel
+                            </Button>
+                            <Button
+                                type="submit"
+                                variant="primary"
+                                className="w-50"
+                                disabled={addLoading}
+                            >
+                                {addLoading
+                                    ? <><Spinner size="sm" animation="border" className="me-2" />Sending...</>
+                                    : "Send Invite"
+                                }
+                            </Button>
                         </div>
                     </Form>
                 </Modal.Body>
