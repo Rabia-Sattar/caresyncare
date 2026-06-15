@@ -16,7 +16,7 @@ const Dashboard = () => {
   const [families, setFamilies] = useState([]);
   const [medReminders, setMedReminders] = useState([]);
   const [events, setEvents] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false); // ✅ false — page turant dikhega
   const navigate = useNavigate();
 
   const quotes = [
@@ -25,10 +25,8 @@ const Dashboard = () => {
     "Take care of your body; it's the only place you have to live.",
   ];
 
-  // ✅ FAST FETCH — Sab parallel
   const fetchDashboardData = async () => {
     try {
-      // ✅ Step 1 — Sab basic APIs ek saath
       const [familyRes, reminderRes, eventRes, healthRes] = await Promise.all([
         API.get("/api/family/my-families"),
         API.get("/api/reminders"),
@@ -39,22 +37,18 @@ const Dashboard = () => {
       const fetchedFamilies = familyRes.data || [];
       setFamilies(fetchedFamilies);
 
-      // Health logs
       if (healthRes.data.success) setHealthLogs(healthRes.data.logs);
 
-      // Reminders
       const userReminders = (reminderRes.data || []).filter(
         r => r.createdBy?._id === user?._id
       );
       setMedReminders(userReminders);
 
-      // Events
       const userEvents = (eventRes.data || []).filter(
         e => e.createdBy === user?._id
       );
       setEvents(userEvents);
 
-      // ✅ Step 2 — Tasks sab families ke liye parallel
       if (fetchedFamilies.length > 0) {
         const taskResults = await Promise.all(
           fetchedFamilies.map(family =>
@@ -79,8 +73,6 @@ const Dashboard = () => {
 
     } catch (err) {
       console.error("Failed to fetch dashboard data", err);
-    } finally {
-      setLoading(false); // ✅ setTimeout hataya
     }
   };
 
@@ -92,11 +84,9 @@ const Dashboard = () => {
 
     setQuote(quotes[Math.floor(Math.random() * quotes.length)]);
 
-    if (!user) {
-      setLoading(false);
-      return;
-    }
+    if (!user) return;
 
+    // ✅ Page turant dikhega, data background mein load hoga
     fetchDashboardData();
   }, [user]);
 
@@ -151,7 +141,6 @@ const Dashboard = () => {
     };
   }, [families, user]);
 
-  // ✅ TASK CALCULATIONS
   const totalTasks = tasks.length;
   const completedTasks = tasks.filter((t) => t.status === "Completed").length;
   const taskCompletionPercent = totalTasks
@@ -168,17 +157,6 @@ const Dashboard = () => {
     if (isNaN(date.getTime())) return "Invalid Date";
     return `${date.toLocaleDateString(undefined, { month: 'short', day: 'numeric' })} • ${date.toLocaleTimeString(undefined, { hour: '2-digit', minute: '2-digit' })}`;
   };
-
-  if (loading) {
-    return (
-      <div className="d-flex justify-content-center align-items-center vh-100 bg-transparent">
-        <div className="text-center">
-          <div className="spinner-border text-primary mb-3" role="status"></div>
-          <p className="text-muted fw-medium">Loading Dashboard...</p>
-        </div>
-      </div>
-    );
-  }
 
   return (
     <div className="dashboard container-fluid">
@@ -203,7 +181,9 @@ const Dashboard = () => {
                   style={{ background: `conic-gradient(#3b82f6 ${taskCompletionPercent * 3.6}deg, rgb(36, 36, 36) 0deg)` }}
                 >
                   <div className="inner-circle">
-                    <h3 className="fw-bold text-primary mb-0" style={{ fontSize: "2.5rem" }}>{taskCompletionPercent}%</h3>
+                    <h3 className="fw-bold text-primary mb-0" style={{ fontSize: "2.5rem" }}>
+                      {taskCompletionPercent}%
+                    </h3>
                   </div>
                 </div>
               </div>
@@ -282,7 +262,7 @@ const Dashboard = () => {
               <FaTasks className="text-white" size={22} />
             </h5>
             {recentPendingTasks.length === 0 ? (
-              <p className="text-center text-white py-4">No pending tasks</p>
+              <p className="text-center text-white py-4">No pending tasks 🎉</p>
             ) : (
               <div className="task-list">
                 {recentPendingTasks.slice(0, 2).map((task) => (
