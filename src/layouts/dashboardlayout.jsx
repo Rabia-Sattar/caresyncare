@@ -8,7 +8,7 @@ import "./dashboardlayout.css";
 
 export default function DashboardLayout() {
   const [collapsed, setCollapsed] = useState(false);
-  const [mobileOpen, setMobileOpen] = useState(false); // ✅ Mobile sidebar
+  const [mobileOpen, setMobileOpen] = useState(false);
   const [showDropdown, setShowDropdown] = useState(false);
   const dropdownRef = useRef();
 
@@ -17,9 +17,9 @@ export default function DashboardLayout() {
 
   const toggleSidebar = () => {
     if (window.innerWidth <= 768) {
-      setMobileOpen(!mobileOpen); // ✅ Mobile par overlay sidebar
+      setMobileOpen(!mobileOpen);
     } else {
-      setCollapsed(!collapsed); // Desktop par collapse
+      setCollapsed(!collapsed);
     }
   };
 
@@ -34,7 +34,7 @@ export default function DashboardLayout() {
 
   useEffect(() => {
     fetchNotifications();
-    const interval = setInterval(fetchNotifications, 8000);
+    const interval = setInterval(fetchNotifications, 60000); // ✅ 8s → 60s
     return () => clearInterval(interval);
   }, []);
 
@@ -48,7 +48,6 @@ export default function DashboardLayout() {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
-  // ✅ Window resize par mobile state reset
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth > 768) {
@@ -136,7 +135,6 @@ export default function DashboardLayout() {
   return (
     <div className="dashboard-container">
 
-      {/* ✅ Mobile Overlay */}
       {mobileOpen && (
         <div
           className="sidebar-overlay"
@@ -148,18 +146,14 @@ export default function DashboardLayout() {
         collapsed={collapsed}
         setCollapsed={setCollapsed}
         toggleSidebar={toggleSidebar}
-        mobileOpen={mobileOpen}        // ✅ Pass kiya
-        setMobileOpen={setMobileOpen}  // ✅ Pass kiya
+        mobileOpen={mobileOpen}
+        setMobileOpen={setMobileOpen}
       />
 
       <div className="dashboard-content">
         <div className="dashboard-topbar">
           <div className="topbar-left">
-            {/* ✅ Mobile Hamburger Button */}
-            <button
-              className="mobile-menu-btn"
-              onClick={toggleSidebar}
-            >
+            <button className="mobile-menu-btn" onClick={toggleSidebar}>
               <Menu size={22} color="white" />
             </button>
             <h2>Welcome, {user?.name || "User"} 👋</h2>
