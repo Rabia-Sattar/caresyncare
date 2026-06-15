@@ -2,25 +2,17 @@ import React, { useEffect, useState, useMemo, useCallback } from "react";
 import API from "../api/axiosinstance";
 import Sidebar from "../components/sidebar";
 import {
-  Search,
-  Filter,
-  Calendar,
-  Clock,
-  MoreVertical,
-  CheckCircle2,
-  Plus,
-  LayoutGrid,
-  Check
+  Search, Filter, Calendar, Clock, MoreVertical,
+  CheckCircle2, Plus, LayoutGrid, Check
 } from "lucide-react";
 import { Container, Row, Col, Button, Badge, Spinner, Dropdown } from "react-bootstrap";
 import "./taskpage.css";
 
 const TaskPage = () => {
   const [tasks, setTasks] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false); // ✅ false — page turant dikhega
   const [sidebarOpen, setSidebarOpen] = useState(true);
   const [searchTerm, setSearchTerm] = useState("");
-  // FIX #1: Track kaun sa task update ho raha hai — UI instantly respond kare
   const [updatingTaskId, setUpdatingTaskId] = useState(null);
 
   const fetchUserTasks = useCallback(async () => {
@@ -29,8 +21,6 @@ const TaskPage = () => {
       setTasks(res.data.tasks || []);
     } catch (error) {
       console.error("Error fetching tasks:", error);
-    } finally {
-      setLoading(false);
     }
   }, []);
 
@@ -38,25 +28,14 @@ const TaskPage = () => {
     fetchUserTasks();
   }, [fetchUserTasks]);
 
-  // FIX #2: Optimistic update — pehle local state change karo, phir API call
-  // Agar API fail ho to rollback karo — refetch band, loading instant
   const updateStatus = useCallback(async (taskId, status) => {
     setUpdatingTaskId(taskId);
-
-    // Purana state save karo rollback ke liye
     const previousTasks = tasks;
-
-    // Optimistic update — turant UI mein dikha do
-    setTasks(prev =>
-      prev.map(t => t._id === taskId ? { ...t, status } : t)
-    );
-
+    setTasks(prev => prev.map(t => t._id === taskId ? { ...t, status } : t));
     try {
       await API.put(`/api/tasks/${taskId}`, { status });
-      // Success — kuch karne ki zaroorat nahi, UI already updated hai
     } catch (err) {
       console.error("Error updating task:", err);
-      // Rollback agar error aaye
       setTasks(previousTasks);
       alert("Status update failed. Please try again.");
     } finally {
@@ -64,7 +43,6 @@ const TaskPage = () => {
     }
   }, [tasks]);
 
-  // FIX #3: Delete bhi optimistic rakho
   const deleteTask = useCallback(async (taskId) => {
     const previousTasks = tasks;
     setTasks(prev => prev.filter(t => t._id !== taskId));
@@ -77,7 +55,6 @@ const TaskPage = () => {
     }
   }, [tasks]);
 
-  // useMemo theek hai — sirf recalculate tab ho jab tasks ya searchTerm change ho
   const grouped = useMemo(() => {
     const term = searchTerm.toLowerCase();
     return tasks
@@ -98,26 +75,18 @@ const TaskPage = () => {
     }
   };
 
-  if (loading) return (
-    <div className="task-loading-screen">
-      <Spinner animation="border" variant="primary" />
-    </div>
-  );
-
   return (
     <div className="dashboard-layout">
-      {/* Sidebar */}
       <Sidebar isOpen={sidebarOpen} setIsOpen={setSidebarOpen} />
 
-      {/* Main Content */}
       <main className="dashboard-main-content" style={{ paddingTop: "60px" }}>
         <Container fluid className="p-4">
 
           {/* Header */}
           <header className="task-header d-flex justify-content-between align-items-center mb-4">
             <div>
-              <h2 className="fw-800 text-dark mb-1">Task Management</h2>
-              <p className="text-muted small">Stay organized with your caregiving responsibilities</p>
+              <h2 className="fw-800 text-dark mb-1">Task Board</h2>
+              <p className="text-muted small">Track and manage caregiving tasks</p>
             </div>
             <Button className="btn-new-task shadow-sm">
               <Plus size={18} className="me-2" /> New Task
@@ -130,7 +99,7 @@ const TaskPage = () => {
               <Search size={18} className="text-muted" />
               <input
                 type="text"
-                placeholder="Search tasks by name..."
+                placeholder="Search tasks..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
               />
@@ -141,7 +110,7 @@ const TaskPage = () => {
             </div>
           </div>
 
-          {/* Tasks List */}
+          {/* ✅ Loading skeleton — page block nahi hoga */}
           {tasks.length === 0 ? (
             <div className="task-empty-state">
               <div className="illustration">📋</div>
@@ -163,8 +132,10 @@ const TaskPage = () => {
                     const isUpdating = updatingTaskId === task._id;
                     return (
                       <Col key={task._id} xs={12} xl={6}>
-                        <div className={`task-card-v2 shadow-sm border-0 h-100 ${isUpdating ? "opacity-75" : ""}`}
-                          style={{ transition: "opacity 0.2s" }}>
+                        <div
+                          className={`task-card-v2 shadow-sm border-0 h-100 ${isUpdating ? "opacity-75" : ""}`}
+                          style={{ transition: "opacity 0.2s" }}
+                        >
                           <div className="p-4 d-flex flex-column justify-content-between h-100">
                             <div>
                               <div className="d-flex justify-content-between align-items-start mb-3">
@@ -197,7 +168,7 @@ const TaskPage = () => {
                                 </Dropdown>
                               </div>
                               <p className="task-description text-muted mb-4">
-                                {task.description || "No description provided for this task."}
+                                {task.description || "No description provided."}
                               </p>
                             </div>
 
