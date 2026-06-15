@@ -6,6 +6,10 @@ import App from "./App";
 import { AuthProvider } from "./context/authcontext";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min.js"; 
+import { startKeepAlive } from './utils/keepAlive';
+
+// App start hone par
+startKeepAlive();
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <BrowserRouter>
