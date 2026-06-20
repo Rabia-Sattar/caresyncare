@@ -15,6 +15,23 @@ import { FaUserPlus, FaCopy } from "react-icons/fa";
 import useAuth from "../hooks/useAuth";
 import "./familydashboard.css";
 
+// ✅ Helper: safely extract an id whether it's a populated object ({_id} or {id})
+// or a raw string/ObjectId, and normalize to string so comparisons never
+// fail due to ObjectId !== String or _id vs id naming differences.
+const getId = (val) => {
+  if (!val) return null;
+  if (typeof val === "object") {
+    return String(val._id || val.id || "");
+  }
+  return String(val);
+};
+
+const isSamePerson = (a, b) => {
+  const idA = getId(a);
+  const idB = getId(b);
+  return !!idA && !!idB && idA === idB;
+};
+
 const FamilyDashboard = () => {
   const { user } = useAuth();
 
@@ -33,7 +50,8 @@ const FamilyDashboard = () => {
   const [newMemberEmail, setNewMemberEmail] = useState("");
   const [removeMode, setRemoveMode] = useState(false);
 
-  const isAdmin = selectedFamily?.createdBy?._id === user?._id;
+  // ✅ FIXED: robust admin check (handles _id/id naming + ObjectId/string mismatch)
+  const isAdmin = isSamePerson(selectedFamily?.createdBy, user);
 
   /* ---------------- FETCH FAMILIES ---------------- */
   const loadFamilies = async () => {
@@ -181,7 +199,8 @@ const FamilyDashboard = () => {
                   <span>{fam.members.length} Members</span>
                 </div>
                 <div className="family-actions">
-                  {fam.createdBy?._id === user?._id && (
+                  {/* ✅ FIXED: robust comparison instead of fam.createdBy?._id === user?._id */}
+                  {isSamePerson(fam.createdBy, user) && (
                     <button className="btn-action btn-delete" onClick={() => handleDeleteFamily(fam._id)}>
                       <Trash2 size={16} />
                     </button>
@@ -249,7 +268,8 @@ const FamilyDashboard = () => {
                   <span className={`status-badge ${m.isAvailable ? "available" : "unavailable"}`}>
                     {m.isAvailable ? "Available" : "Unavailable"}
                   </span>
-                  {isAdmin && removeMode && m._id !== selectedFamily.createdBy?._id && (
+                  {/* ✅ FIXED: robust comparison instead of m._id !== selectedFamily.createdBy?._id */}
+                  {isAdmin && removeMode && !isSamePerson(m, selectedFamily.createdBy) && (
                     <button onClick={() => handleRemoveMember(m._id)}>
                       <Trash2 size={14} />
                     </button>
