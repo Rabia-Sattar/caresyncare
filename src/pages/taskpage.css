@@ -278,3 +278,23 @@
     padding: 4px 8px !important;
   }
 }
+/* ===============================
+   TASK CARD HEADER FIX — Long Title Overlap
+================================ */
+.task-card-v2 .d-flex.justify-content-between {
+  align-items: flex-start !important;
+  gap: 10px;
+}
+
+.task-name {
+  flex: 1;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  line-height: 1.4;
+  margin-right: 8px;
+}
+
+.more-btn {
+  flex-shrink: 0; /* ✅ Icon kabhi squeeze nahi hoga */
+  margin-top: 2px;
+}
