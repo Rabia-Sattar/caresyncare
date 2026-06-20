@@ -25,6 +25,16 @@ const getCurrentUserId = () => {
   }
 };
 
+// 🧹 AI response mein stray "&" artifacts (e.g. "C&o&n&s&i&d&e&r&") clean karo,
+// asli HTML entities (&amp; &lt; &gt; &quot; &nbsp; &#39;) ko chhed nahi karta
+const sanitizeAIText = (text) => {
+  if (!text || typeof text !== "string") return text;
+  return text
+    .replace(/&(?!amp;|lt;|gt;|quot;|nbsp;|#39;)/g, "")
+    .replace(/\s{2,}/g, " ")
+    .trim();
+};
+
 // 🤖 Groq AI se insights fetch karo
 const fetchAIInsights = async (vitals = {}) => {
   try {
@@ -44,13 +54,13 @@ const fetchAIInsights = async (vitals = {}) => {
         const type =
           a.status === "Critical" || a.status === "High" ? "warning" :
           a.status === "Low" ? "info" : "good";
-        insights.push({ type, text: a.tip, category: a.category });
+        insights.push({ type, text: sanitizeAIText(a.tip), category: a.category });
       });
     }
     if (insights.length === 0)
-      insights.push({ type: "good", text: data.summary || "All vitals are within healthy range" });
+      insights.push({ type: "good", text: sanitizeAIText(data.summary) || "All vitals are within healthy range" });
 
-    return { insights, summary: data.summary, overallStatus: data.overallStatus };
+    return { insights, summary: sanitizeAIText(data.summary), overallStatus: data.overallStatus };
   } catch (err) {
     // Fallback agar API fail ho
     return {
