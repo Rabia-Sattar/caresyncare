@@ -1,3 +1,4 @@
+
 // ✅ ONLY NEW IMPORT
 import socket from "../../socket/socket";
 
@@ -241,15 +242,26 @@ const handleSubmitTask = async (e) => {
                     ? task.assignedTo?._id
                     : task.assignedTo;
 
+                // ✅ Who created/assigned this task (backend field is "assignedBy")
+                const creatorId =
+                  typeof task.assignedBy === "object"
+                    ? task.assignedBy?._id
+                    : task.assignedBy;
+
                 const isAssigned = assignedId === userId;
                 const isAdmin = family?.createdBy?._id === userId;
+                const isCreator = creatorId && creatorId === userId;
+
+                // ✅ Family admin OR the person who created/assigned this task
+                // can edit/delete it
+                const canManageTask = isAdmin || isCreator;
 
                 return (
                   <div
                     className={`task-card status-${task.status.replace(" ", "").toLowerCase()}`}
                     key={task._id}
                   >
-                    {isAdmin && (
+                    {canManageTask && (
                       <div className="admin-actions">
                         <button
                           className="icon-btn edit"
