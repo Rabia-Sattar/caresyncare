@@ -1,12 +1,12 @@
 export const MOCK_NURSES = [
   {
     id: '1',
-    name: 'Sarah Mitchell',
+    name: 'Ayesha Siddiqui',
     role: 'Registered Nurse (RN)',
     experience: '8 years',
     rating: 4.9,
     reviewsCount: 124,
-    hourlyRate: 45,
+    hourlyRate: 1200,
     availability: 'Available',
     bio: 'Dedicated RN specializing in geriatric care and post-operative recovery. Passionate about providing compassionate home care.',
     specialties: ['Geriatrics', 'Post-Op', 'Wound Care'],
@@ -14,25 +14,25 @@ export const MOCK_NURSES = [
   },
   {
     id: '2',
-    name: 'David Chen',
+    name: 'Bilal Ahmed',
     role: 'Clinical Nurse Specialist',
     experience: '12 years',
     rating: 4.8,
     reviewsCount: 89,
-    hourlyRate: 55,
+    hourlyRate: 1500,
     availability: 'Available',
     bio: 'Experienced clinical specialist with a focus on chronic disease management and pediatric care.',
     specialties: ['Chronic Care', 'Pediatrics', 'Diabetes Management'],
-    imageUrl: 'https://ascentent.b-cdn.net/wp-content/uploads/2022/07/Doctor-Page-Desktop-7.jpg'
+    imageUrl: 'https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&q=80&w=400&h=400'
   },
   {
     id: '3',
-    name: 'Elena Rodriguez',
+    name: 'Fatima Khan',
     role: 'Licensed Practical Nurse (LPN)',
     experience: '5 years',
     rating: 4.7,
     reviewsCount: 56,
-    hourlyRate: 38,
+    hourlyRate: 950,
     availability: 'Available',
     bio: 'Focused on rehabilitation and daily assistance for elderly patients. Certified in emergency first aid.',
     specialties: ['Elderly Care', 'Rehabilitation', 'First Aid'],
@@ -40,12 +40,12 @@ export const MOCK_NURSES = [
   },
   {
     id: '4',
-    name: 'James Wilson',
+    name: 'Hassan Raza',
     role: 'Senior Registered Nurse',
     experience: '15 years',
     rating: 5.0,
     reviewsCount: 210,
-    hourlyRate: 60,
+    hourlyRate: 1800,
     availability: 'Available',
     bio: 'Expert in critical care and advanced life support. High-level care for complex medical situations at home.',
     specialties: ['Critical Care', 'ICU Experience', 'Ventilator Care'],
@@ -53,12 +53,12 @@ export const MOCK_NURSES = [
   },
   {
     id: '5',
-    name: 'Maria Gonzalez',
+    name: 'Sana Malik',
     role: 'Pediatric Nurse',
     experience: '7 years',
     rating: 4.85,
     reviewsCount: 95,
-    hourlyRate: 42,
+    hourlyRate: 1100,
     availability: 'Available',
     bio: 'Passionate pediatric nurse with experience in neonatal care and child wellness programs.',
     specialties: ['Pediatrics', 'Neonatal Care', 'Vaccinations'],
@@ -66,49 +66,49 @@ export const MOCK_NURSES = [
   },
   {
     id: '6',
-    name: 'Ahmed Khan',
+    name: 'Usman Sheikh',
     role: 'Home Care Nurse',
     experience: '10 years',
     rating: 4.9,
     reviewsCount: 132,
-    hourlyRate: 50,
+    hourlyRate: 1400,
     availability: 'Available',
     bio: 'Experienced in post-surgery care and chronic illness management for home patients.',
     specialties: ['Home Care', 'Chronic Illness', 'Post-Surgery'],
-    imageUrl: 'https://dccevv.com/wp-content/uploads/Khan.jpg'
+    imageUrl: 'https://images.unsplash.com/photo-1551601651-2a8555f1a136?auto=format&fit=crop&q=80&w=400&h=400'
   },
   {
     id: '7',
-    name: 'Sophia Lee',
+    name: 'Zainab Tariq',
     role: 'Emergency Nurse',
     experience: '6 years',
     rating: 4.75,
     reviewsCount: 78,
-    hourlyRate: 48,
+    hourlyRate: 1250,
     availability: 'Available',
     bio: 'Skilled in emergency response and trauma care with certifications in advanced first aid.',
     specialties: ['Emergency Care', 'Trauma', 'First Aid'],
-    imageUrl: 'https://www.texasoncology.com/_next/image?url=https%3A%2F%2Fedge.sitecorecloud.io%2Ftexasoncolo7d12-txo5d45-production6298-d24c%2Fmedia%2FImages%2FTXO%2Fproviders%2FSophia-Lee-MD.png%3Fh%3D1000%26iar%3D0%26w%3D800&w=1920&q=75&dpl=dpl_CE4azp8vHnqoaEA8CyZqYXmZ41Pk'
+    imageUrl: 'https://images.unsplash.com/photo-1551601651-2a8555f1a136?auto=format&fit=crop&q=80&w=400&h=400&flip=h'
   },
   {
     id: '8',
-    name: 'Liam Thompson',
+    name: 'Imran Qureshi',
     role: 'Senior Clinical Nurse',
     experience: '14 years',
     rating: 5.0,
     reviewsCount: 185,
-    hourlyRate: 58,
+    hourlyRate: 1650,
     availability: 'Available',
     bio: 'Specializes in ICU and cardiac care, providing advanced support for high-risk patients.',
     specialties: ['ICU', 'Cardiac Care', 'Advanced Life Support'],
-    imageUrl: 'https://strategycorp.com/wp-content/uploads/2022/11/Liam_web_0888.jpg'
+    imageUrl: 'https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&q=80&w=400&h=400&flip=h'
   }
 ];
 
 export const BANK_DETAILS = {
-  accountName: "CareGuide Services Ltd.",
-  accountNumber: "8823 4402 1192 0041",
-  bankName: "National Health Trust Bank",
-  swiftCode: "NHTB-US-33",
-  branch: "Central Healthcare Square"
+  accountName: "CareGuide Services Pvt. Ltd.",
+  accountNumber: "PK36 HABB 0023 4402 1192 0041",
+  bankName: "Habib Bank Limited (HBL)",
+  swiftCode: "HABBPKKA",
+  branch: "Gulberg Branch, Lahore"
 };
