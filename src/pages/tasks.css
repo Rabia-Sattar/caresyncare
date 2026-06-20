@@ -548,3 +548,23 @@
     border-radius: 14px;
   }
 }
+/* ===============================
+   TASK CARD HEADER FIX
+================================ */
+.task-card {
+  position: relative;
+  padding-right: 70px; /* ✅ Icons ke liye right side space reserve */
+}
+
+.task-card h6 {
+  padding-right: 0;
+  word-wrap: break-word;
+  line-height: 1.4;
+}
+
+/* ✅ Edit/Delete icons fix position mein rakho */
+.task-card .admin-actions,
+.task-card > div:first-child > .icon-btn,
+.task-card svg {
+  flex-shrink: 0;
+}
