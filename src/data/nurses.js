@@ -62,7 +62,7 @@ export const MOCK_NURSES = [
     availability: 'Available',
     bio: 'Passionate pediatric nurse with experience in neonatal care and child wellness programs.',
     specialties: ['Pediatrics', 'Neonatal Care', 'Vaccinations'],
-    imageUrl: 'https://www.medmaps.org/wp-content/uploads/2022/12/Sana-Majeed.jpeg'
+    imageUrl: 'https://cdn-images.kyruus.com/providermatch/nuvancehealth/photos/500/chaudhary-sana-1831548684.jpg'
   },
   {
     id: '6',
