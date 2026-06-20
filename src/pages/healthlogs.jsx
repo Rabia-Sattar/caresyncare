@@ -219,10 +219,22 @@ export default function HealthLogs() {
     doc.text("AI Health Insights", 10, currentY);
     currentY += 8;
     doc.setFontSize(11);
+
+    const insightMaxWidth = pageWidth - 24; // 12mm margin on each side
+    const pageHeight = doc.internal.pageSize.getHeight();
+
     aiInsights.forEach(i => {
-      const icon = i.type === "warning" ? "⚠" : i.type === "good" ? "✔" : "ℹ";
-      doc.text(`${icon} ${i.text}`, 12, currentY);
-      currentY += 7;
+      const label = i.type === "warning" ? "[Warning]" : i.type === "good" ? "[Good]" : "[Info]";
+      const wrappedLines = doc.splitTextToSize(`${label} ${i.text}`, insightMaxWidth);
+
+      // start a new page if this insight won't fit on the current one
+      if (currentY + wrappedLines.length * 6 > pageHeight - 20) {
+        doc.addPage();
+        currentY = 20;
+      }
+
+      doc.text(wrappedLines, 12, currentY);
+      currentY += wrappedLines.length * 6 + 3;
     });
 
     currentY += 5;
