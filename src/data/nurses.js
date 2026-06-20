@@ -62,7 +62,7 @@ export const MOCK_NURSES = [
     availability: 'Available',
     bio: 'Passionate pediatric nurse with experience in neonatal care and child wellness programs.',
     specialties: ['Pediatrics', 'Neonatal Care', 'Vaccinations'],
-    imageUrl: 'https://sunwayuniversity.edu.my/sites/default/files/styles/three_by_four/public/staff-images/2023/sana_malik_set.png.jpg?itok=2vCZoS4Y'
+    imageUrl: 'https://www.medmaps.org/wp-content/uploads/2022/12/Sana-Majeed.jpeg'
   },
   {
     id: '6',
@@ -75,7 +75,7 @@ export const MOCK_NURSES = [
     availability: 'Available',
     bio: 'Experienced in post-surgery care and chronic illness management for home patients.',
     specialties: ['Home Care', 'Chronic Illness', 'Post-Surgery'],
-    imageUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQUmS0_qv1Z6D0bq5rtFyAHQz1NfP4VMuZod5Bfa5byYnY79YPPqno4Dlo&s=10'
+    imageUrl: 'https://media.licdn.com/dms/image/v2/D4D03AQHQp1TOZ09Acg/profile-displayphoto-scale_200_200/B4DZfCoLuJHMAY-/0/1751317004423?e=2147483647&v=beta&t=BpmimyPZnGaq5xR3mLuLPRXYmUUChs2PbmTuPrT4520'
   },
   {
     id: '7',
