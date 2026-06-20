@@ -75,7 +75,7 @@ export const MOCK_NURSES = [
     availability: 'Available',
     bio: 'Experienced in post-surgery care and chronic illness management for home patients.',
     specialties: ['Home Care', 'Chronic Illness', 'Post-Surgery'],
-    imageUrl: 'https://images.unsplash.com/photo-1551601651-2a8555f1a136?auto=format&fit=crop&q=80&w=400&h=400'
+    imageUrl: 'https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&q=80&w=400&h=400'
   },
   {
     id: '7',
@@ -88,7 +88,7 @@ export const MOCK_NURSES = [
     availability: 'Available',
     bio: 'Skilled in emergency response and trauma care with certifications in advanced first aid.',
     specialties: ['Emergency Care', 'Trauma', 'First Aid'],
-    imageUrl: 'https://images.unsplash.com/photo-1551601651-2a8555f1a136?auto=format&fit=crop&q=80&w=400&h=400&flip=h'
+    imageUrl: 'https://images.unsplash.com/photo-1666214280557-f1b5022eb634?auto=format&fit=crop&q=80&w=400&h=400'
   },
   {
     id: '8',
@@ -101,7 +101,7 @@ export const MOCK_NURSES = [
     availability: 'Available',
     bio: 'Specializes in ICU and cardiac care, providing advanced support for high-risk patients.',
     specialties: ['ICU', 'Cardiac Care', 'Advanced Life Support'],
-    imageUrl: 'https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&q=80&w=400&h=400&flip=h'
+    imageUrl: 'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&q=80&w=400&h=400'
   }
 ];
 
