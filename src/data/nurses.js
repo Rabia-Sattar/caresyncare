@@ -10,7 +10,7 @@ export const MOCK_NURSES = [
     availability: 'Available',
     bio: 'Dedicated RN specializing in geriatric care and post-operative recovery. Passionate about providing compassionate home care.',
     specialties: ['Geriatrics', 'Post-Op', 'Wound Care'],
-    imageUrl: 'https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?auto=format&fit=crop&q=80&w=400&h=400'
+    imageUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTuTR8qZsX2cLRvPrzLQEJ5Edg_ochgrcwbWhq8c2pkJoPcX4_mNAAH4TM&s=10'
   },
   {
     id: '2',
@@ -23,7 +23,7 @@ export const MOCK_NURSES = [
     availability: 'Available',
     bio: 'Experienced clinical specialist with a focus on chronic disease management and pediatric care.',
     specialties: ['Chronic Care', 'Pediatrics', 'Diabetes Management'],
-    imageUrl: 'https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&q=80&w=400&h=400'
+    imageUrl: 'https://media.licdn.com/dms/image/v2/D4D03AQHlsc-Sxwv-rQ/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1684518391620?e=2147483647&v=beta&t=EkYKQLPmnT8vmAhI3Bcu7n6_yuMaCNw_1Wec0ekooUQ'
   },
   {
     id: '3',
@@ -36,7 +36,7 @@ export const MOCK_NURSES = [
     availability: 'Available',
     bio: 'Focused on rehabilitation and daily assistance for elderly patients. Certified in emergency first aid.',
     specialties: ['Elderly Care', 'Rehabilitation', 'First Aid'],
-    imageUrl: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=400&h=400&q=80'
+    imageUrl: 'https://pinkperfect.pk/wp-content/uploads/2025/11/10012.webp'
   },
   {
     id: '4',
@@ -49,7 +49,7 @@ export const MOCK_NURSES = [
     availability: 'Available',
     bio: 'Expert in critical care and advanced life support. High-level care for complex medical situations at home.',
     specialties: ['Critical Care', 'ICU Experience', 'Ventilator Care'],
-    imageUrl: 'https://images.unsplash.com/photo-1537368910025-700350fe46c7?auto=format&fit=crop&q=80&w=400&h=400'
+    imageUrl: 'https://asdaralshifa.com/wp-content/uploads/2025/06/Hassan-Raza-Shah-Wasif.png'
   },
   {
     id: '5',
@@ -62,7 +62,7 @@ export const MOCK_NURSES = [
     availability: 'Available',
     bio: 'Passionate pediatric nurse with experience in neonatal care and child wellness programs.',
     specialties: ['Pediatrics', 'Neonatal Care', 'Vaccinations'],
-    imageUrl: 'https://images.unsplash.com/photo-1607746882042-944635dfe10e?auto=format&fit=crop&q=80&w=400&h=400'
+    imageUrl: 'https://sunwayuniversity.edu.my/sites/default/files/styles/three_by_four/public/staff-images/2023/sana_malik_set.png.jpg?itok=2vCZoS4Y'
   },
   {
     id: '6',
@@ -75,7 +75,7 @@ export const MOCK_NURSES = [
     availability: 'Available',
     bio: 'Experienced in post-surgery care and chronic illness management for home patients.',
     specialties: ['Home Care', 'Chronic Illness', 'Post-Surgery'],
-    imageUrl: 'https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&q=80&w=400&h=400'
+    imageUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQUmS0_qv1Z6D0bq5rtFyAHQz1NfP4VMuZod5Bfa5byYnY79YPPqno4Dlo&s=10'
   },
   {
     id: '7',
@@ -88,7 +88,7 @@ export const MOCK_NURSES = [
     availability: 'Available',
     bio: 'Skilled in emergency response and trauma care with certifications in advanced first aid.',
     specialties: ['Emergency Care', 'Trauma', 'First Aid'],
-    imageUrl: 'https://images.unsplash.com/photo-1666214280557-f1b5022eb634?auto=format&fit=crop&q=80&w=400&h=400'
+    imageUrl: 'https://media.licdn.com/dms/image/v2/D4D03AQGaITXnP_lCBg/profile-displayphoto-scale_400_400/B4DZfW4MuZG8Ao-/0/1751656746964?e=2147483647&v=beta&t=PuVUwjo7pez-TZnPBCNpq0QHANwSpfkfJkaShKvNm1g'
   },
   {
     id: '8',
@@ -101,7 +101,7 @@ export const MOCK_NURSES = [
     availability: 'Available',
     bio: 'Specializes in ICU and cardiac care, providing advanced support for high-risk patients.',
     specialties: ['ICU', 'Cardiac Care', 'Advanced Life Support'],
-    imageUrl: 'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&q=80&w=400&h=400'
+    imageUrl: 'https://jeevanrekhahospital.com/wp-content/uploads/2025/12/Dr.-MD.-Imran-PT-1.webp'
   }
 ];
 
