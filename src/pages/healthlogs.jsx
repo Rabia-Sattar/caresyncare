@@ -153,7 +153,7 @@ export default function HealthLogs() {
 
       if (data.isEmergency) {
         toast.error(
-          `🚨 ${data.emergencyLevel || "Emergency"} detected! Family ko alert email bhej diya gaya hai.`,
+          `🚨 ${data.emergencyLevel || "Emergency"} detected! An alert email has been sent to the family.`,
           { autoClose: 6000 }
         );
       } else if (data.message) {
