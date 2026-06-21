@@ -1,7 +1,7 @@
 // frontend/src/pages/HealthLogs.jsx
 import React, { useEffect, useState, useRef } from "react";
-import API from "../api/axiosinstance";
-import WeeklyVitalsChart from "../components/weeklyvitalschart";
+import API from "../api/axiosInstance";
+import WeeklyVitalsChart from "../components/WeeklyVitalsChart";
 import {LuActivity, LuHeart, LuDroplets, LuScale, LuStickyNote, LuUsers,LuClock, LuUser, LuMessageSquare, LuChevronRight, LuCircleAlert,
 LuCircleCheck, LuFootprints, LuMoon, LuWind, LuSparkles, LuBrainCircuit, LuTriangleAlert, LuInfo, LuLightbulb } from "react-icons/lu";
 import { Spinner, Modal } from "react-bootstrap";
@@ -11,7 +11,8 @@ import autoTable from "jspdf-autotable";
 import html2canvas from "html2canvas";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import "./healthlogs.css";
+import "./HealthLogs.css";
+import axiosInstance from "../api/axiosInstance";
 
 /* ================= HELPERS ================= */
 const getCurrentUserId = () => {
@@ -23,16 +24,6 @@ const getCurrentUserId = () => {
   } catch {
     return null;
   }
-};
-
-// 🧹 AI response mein stray "&" artifacts (e.g. "C&o&n&s&i&d&e&r&") clean karo,
-// asli HTML entities (&amp; &lt; &gt; &quot; &nbsp; &#39;) ko chhed nahi karta
-const sanitizeAIText = (text) => {
-  if (!text || typeof text !== "string") return text;
-  return text
-    .replace(/&(?!amp;|lt;|gt;|quot;|nbsp;|#39;)/g, "")
-    .replace(/\s{2,}/g, " ")
-    .trim();
 };
 
 // 🤖 Groq AI se insights fetch karo
@@ -54,13 +45,13 @@ const fetchAIInsights = async (vitals = {}) => {
         const type =
           a.status === "Critical" || a.status === "High" ? "warning" :
           a.status === "Low" ? "info" : "good";
-        insights.push({ type, text: sanitizeAIText(a.tip), category: a.category });
+        insights.push({ type, text: a.tip, category: a.category });
       });
     }
     if (insights.length === 0)
-      insights.push({ type: "good", text: sanitizeAIText(data.summary) || "All vitals are within healthy range" });
+      insights.push({ type: "good", text: data.summary || "All vitals are within healthy range" });
 
-    return { insights, summary: sanitizeAIText(data.summary), overallStatus: data.overallStatus };
+    return { insights, summary: data.summary, overallStatus: data.overallStatus };
   } catch (err) {
     // Fallback agar API fail ho
     return {
@@ -92,6 +83,9 @@ export default function HealthLogs() {
   const [showAddVitalsModal, setShowAddVitalsModal] = useState(false);
   const [aiInsights, setAiInsights] = useState([]);
   const [aiLoading, setAiLoading] = useState(false);
+
+  // 🚨 Emergency detection state — kaunsa log abhi check ho raha hai
+  const [emergencyChecking, setEmergencyChecking] = useState(null);
 
   const [vitalsForm, setVitalsForm] = useState({
     systolic: "", diastolic: "", sugar: "", weight: "", heartRate: ""
@@ -143,6 +137,42 @@ export default function HealthLogs() {
     loadLogs();
   }, [selectedFamily]);
 
+  /* ================= EMERGENCY AI CHECK ================= */
+  // logId diya ho to specific log/family check hoga (manual "Alert" click se),
+  // warna logged-in user ke apne latest logs check honge (auto, vitals save ke baad).
+  const checkEmergency = async (logId = null) => {
+    try {
+      setEmergencyChecking(logId || "latest");
+
+      const url = logId
+        ? `/api/healthlogs/emergency/detect/${logId}`
+        : `/api/healthlogs/emergency/detect`;
+
+      const res = await API.get(url);
+      const data = res.data;
+
+      if (data.isEmergency) {
+        toast.error(
+          `🚨 ${data.emergencyLevel || "Emergency"} detected! Family ko alert email bhej diya gaya hai.`,
+          { autoClose: 6000 }
+        );
+      } else if (data.message) {
+        // e.g. "No recent health logs found."
+        toast.info(data.message);
+      } else {
+        toast.success("✅ Vitals normal — no emergency detected.");
+      }
+
+      return data;
+    } catch (err) {
+      console.error("Emergency check error:", err);
+      toast.error("Emergency check fail ho gaya. Dobara try karein.");
+      return null;
+    } finally {
+      setEmergencyChecking(null);
+    }
+  };
+
   /* ================= SAVE VITALS ================= */
   const saveVitals = async () => {
     const payload = {
@@ -173,11 +203,21 @@ export default function HealthLogs() {
     setLoading(true);
     try {
       const res = await API.post("/api/healthlogs", payload);
-      setLogs(prev => [res.data.log || res.data, ...prev]);
+      const newLog = res.data.log || res.data;
+
+      setLogs(prev => [newLog, ...prev]);
       setVitalsForm({ systolic: "", diastolic: "", sugar: "", weight: "", heartRate: "" });
       setNoteText("");
       setShowAddVitalsModal(false);
       toast.success("Vitals logged successfully!");
+
+      // 🤖 Naya vital save hone ke baad automatically AI emergency check karo.
+      // Agar AI ko emergency lage to backend khud family ko email bhej dega.
+      if (newLog?._id) {
+        checkEmergency(newLog._id);
+      } else {
+        checkEmergency(); // fallback: logged-in user ke latest logs check karo
+      }
     } catch (err) {
       console.error("Error saving vitals:", err);
       toast.error("Failed to save vitals");
@@ -229,22 +269,10 @@ export default function HealthLogs() {
     doc.text("AI Health Insights", 10, currentY);
     currentY += 8;
     doc.setFontSize(11);
-
-    const insightMaxWidth = pageWidth - 24; // 12mm margin on each side
-    const pageHeight = doc.internal.pageSize.getHeight();
-
     aiInsights.forEach(i => {
-      const label = i.type === "warning" ? "[Warning]" : i.type === "good" ? "[Good]" : "[Info]";
-      const wrappedLines = doc.splitTextToSize(`${label} ${i.text}`, insightMaxWidth);
-
-      // start a new page if this insight won't fit on the current one
-      if (currentY + wrappedLines.length * 6 > pageHeight - 20) {
-        doc.addPage();
-        currentY = 20;
-      }
-
-      doc.text(wrappedLines, 12, currentY);
-      currentY += wrappedLines.length * 6 + 3;
+      const icon = i.type === "warning" ? "⚠" : i.type === "good" ? "✔" : "ℹ";
+      doc.text(`${icon} ${i.text}`, 12, currentY);
+      currentY += 7;
     });
 
     currentY += 5;
@@ -383,6 +411,7 @@ export default function HealthLogs() {
                   const s = Number(log.vitals?.bloodPressure?.systolic || 0);
                   const sugar = Number(log.vitals?.sugar || 0);
                   const isCritical = s >= 140 || sugar >= 200;
+                  const isThisChecking = emergencyChecking === log._id;
                   return (
                     <div className={`activity-row-card ${isCritical ? 'status-alert' : 'status-stable'}`} key={log._id}>
                       <div className="status-strip"></div>
@@ -403,7 +432,23 @@ export default function HealthLogs() {
                           <div className="vital-item"><label>HR</label><div className="value-group"><span className="big-val">{log.vitals?.heartRate || "--"}</span><span className="unit-text">BPM</span></div></div>
                           <div className="vital-item"><label>Weight</label><div className="value-group"><span className="big-val">{log.vitals?.weight || "--"}</span><span className="unit-text">kg</span></div></div>
                         </div>
-                        <div className="col-status-icon">{isCritical ? <div className="status-pill alert"><LuCircleAlert size={12} /> Alert</div> : <div className="status-pill stable"><LuCircleCheck size={12} /> Stable</div>}</div>
+                        <div className="col-status-icon">
+                          {isCritical ? (
+                            <button
+                              type="button"
+                              className="status-pill alert"
+                              onClick={() => checkEmergency(log._id)}
+                              disabled={isThisChecking}
+                              style={{ border: "none", cursor: isThisChecking ? "not-allowed" : "pointer" }}
+                              title="AI se emergency verify karein aur family ko alert email bhejein"
+                            >
+                              <LuCircleAlert size={12} />{" "}
+                              {isThisChecking ? "Checking..." : "Alert"}
+                            </button>
+                          ) : (
+                            <div className="status-pill stable"><LuCircleCheck size={12} /> Stable</div>
+                          )}
+                        </div>
                       </div>
                       {log.notes && <div className="row-notes"><LuMessageSquare size={14} /><span>{log.notes}</span></div>}
                     </div>
