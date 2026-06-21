@@ -165,7 +165,7 @@ export default function HealthLogs() {
       return data;
     } catch (err) {
       console.error("Emergency check error:", err);
-      toast.error("Emergency check fail ho gaya. Dobara try karein.");
+      toast.error("The emergency check was unsuccessful.");
       return null;
     } finally {
       setEmergencyChecking(null);
